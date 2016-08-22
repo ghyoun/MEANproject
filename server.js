@@ -6,16 +6,21 @@ var mongoose = require( 'mongoose' ),
     port     = process.env.PORT || 8000,
     app      = express(),
     session = require('express-session');
-
-app.use(bp.json())
-app.use( express.static( path.join( root, 'client' )));
+    favicon = require('serve-favicon')
 
 app.use(session({
     secret: 'dojo',
-}))
+    resave: false,
+    saveUninitialized: true,
+    maxAge: 5000000
+}));
+
+app.use(bp.json())
+app.use( express.static( path.join( root, 'client' )));
+app.use(express.static(path.join(__dirname, './bower_components')))
+app.use(favicon(__dirname + '/client/public/favicon.ico'));
 
 require('./server/config/mongoose.js');
-
 require('./server/config/routes.js')(app);
 
 
