@@ -1,15 +1,17 @@
-var app = angular.module('app', ['ngRoute']);
+(function(){
+    'use strict'
 
-app.config(function ($routeProvider) {
-    $routeProvider.when('/', {
-        templateUrl: 'static/partials/index.html',
-        // controller: 'indexController'
-    })
-    // .when('/dashboard', {
-    //     templateUrl: 'static/partials/dashboard.html',
-    //     controller: 'dashboardController'
-    // })
-    .otherwise({
-        redirectTo: '/'
-    });
-});
+    angular
+        .module('app', ['ngRoute'])
+        .config(config)
+    function config($routeProvider){
+        $routeProvider
+
+        .when('/', {
+            templateUrl: 'assets/partials/index.html'
+        })
+        .otherwise({
+            redirectTo: '/'
+        })      
+    }
+})()
