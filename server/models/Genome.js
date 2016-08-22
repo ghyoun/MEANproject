@@ -14,8 +14,18 @@ var genomeSchema = mongoose.Schema({
     sequence: {
         type: String,
         require: true
+    },
+
+    simple_name: {
+        type: String,
+        require: true
+    },
+
+    type: {
+        type: String
     }
 
 }, {timestamps: true});
 
+//to call the genomes use this model call
 var Genome = mongoose.model('Genome', genomeSchema);
