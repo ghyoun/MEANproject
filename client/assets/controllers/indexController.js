@@ -1,4 +1,4 @@
-app.controller('indexController', function(indexFactory, $location, $routeParams, $scope){
+app.controller('indexController', function($location, $routeParams, $scope){
 
     $scope.currentPage = $location.path();
     // $scope.id = $routeParams.id;
