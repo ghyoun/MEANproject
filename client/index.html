@@ -1,27 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
   <meta charset="UTF-8">
   <title>Genesis</title>
 </head>
-<body ng-app="app">
-  
-    <div ng-view></div>
+<body ng-controller="MainController">
+ 
+ <header ng-if="currentPage !== '/'">
+    <nav class="navbar navbar-light bg-faded">
+      <a class="navbar-brand" href=""><img src="assets/images/main/genesislogo.png"></a>
+      <ul class="nav navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#/genesis">Sequence Analysis <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/synthesis">Modern Evolution Synthesis</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#/phylogenetics">Phylogenetics</a>
+        </li>
+      </ul>
+    </nav>
+</header>
 
+
+
+<div ng-view></div>
+
+
+
+<!-- Links to API for development -->
+<div ng-if="currentPage !== '/'">
     <h4>&nbsp;</h4>
-    <h4 style="text-align: center">json: <a href="/test">test</a> - 
+    <h4 style="text-align: center">json: <a href="/genomes">genomes</a> - 
     <a href="/test2">test2</a> - 
-    <a href="/test3">test3</a> - 
-    <a href="/test4">test4</a></h4>
+    <a href="/test3">test3</a> </h4>
     <h4>&nbsp;</h4>
+</div>
+<!-- End of links to API for development -->
+
+<div class="main_footer" ng-if="currentPage !== '/'">
+    <div class="main_footer_left">&#169; Copyright 2016 Genesis Ltd. All Rights Reserved</div>
+    <div class="main_footer_right">Terms | Policy</div>
+</div>
 
 </body>
 <script src="angular/angular.js"></script>
 <script src="angular-route/angular-route.js"></script>
 <script src="assets/app.js"></script>
-<!-- <script src="assets/controllers/indexController.js"></script> -->
-<!-- <script src="assets/factories/dashboardFactory.js"></script> -->
-<!-- <script src="assets/controllers/dashboardController.js"></script> -->
+<script src="assets/controllers/MainController.js"></script>
+<script src="assets/controllers/indexController.js"></script>
+<script src="assets/factories/compareFactory.js"></script>
+<script src="assets/controllers/compareController.js"></script>
 <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <link rel="stylesheet" type="text/css" href="assets/css/compare.css">
