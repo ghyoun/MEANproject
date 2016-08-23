@@ -10,6 +10,9 @@
         .when('/', {
             templateUrl: 'assets/partials/index.html'
         })
+        .when('/compare', {
+            templateUrl: 'assets/partials/compare.html'
+        })
         .otherwise({
             redirectTo: '/'
         })      
