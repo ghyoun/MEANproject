@@ -5,7 +5,17 @@
   <title>Genesis</title>
 </head>
 <body ng-app="app">
-  
+ 
+ <h3 style="text-align:center">Genesis</h3>
+<nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav nav-justified">
+      <li><a href="#/">Compare</a></li>
+      <li><a href="#/partial2">Page 2</a></li> 
+      <li><a href="#/index">Index</a></li> 
+    </ul>
+</nav>
+
+
     <div ng-view></div>
 
     <h4>&nbsp;</h4>
@@ -20,8 +30,8 @@
 <script src="angular-route/angular-route.js"></script>
 <script src="assets/app.js"></script>
 <!-- <script src="assets/controllers/indexController.js"></script> -->
-<!-- <script src="assets/factories/dashboardFactory.js"></script> -->
-<!-- <script src="assets/controllers/dashboardController.js"></script> -->
+<script src="assets/factories/compareFactory.js"></script>
+<script src="assets/controllers/compareController.js"></script>
 <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </html>

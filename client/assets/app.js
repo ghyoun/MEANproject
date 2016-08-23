@@ -1,17 +1,16 @@
-(function(){
-    'use strict'
+var app = angular.module('app', ['ngRoute']);
 
-    angular
-        .module('app', ['ngRoute'])
-        .config(config)
-    function config($routeProvider){
-        $routeProvider
+app.config(function ($routeProvider) {
+    $routeProvider.when('/', {
+        templateUrl: 'assets/partials/compare.html',
+        controller: 'compareController'
+    })
+    .when('/index', {
+        templateUrl: 'assets/partials/index.html',
+        // controller: 'dashboardController'
+    })
 
-        .when('/', {
-            templateUrl: 'assets/partials/index.html'
-        })
-        .otherwise({
-            redirectTo: '/'
-        })      
-    }
-})()
+    .otherwise({
+        redirectTo: '/'
+    });
+});
