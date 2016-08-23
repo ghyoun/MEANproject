@@ -1,0 +1,30 @@
+<div class="container">
+
+    <select class="form-control">
+      <option value="" disabled selected>Select First Strand</option>
+      <option ng-repeat="genome in genomes">{{genome.simple_name}}</option>
+    </select>
+    <button>Or Enter Own</button>
+    <!-- <input type="text" name="" class="form-control" placeholder="Enter own seq" > -->
+    <!-- <textarea class="form-control">Enter own seq</textarea> -->
+
+
+
+    <select class="form-control">
+      <option value="" disabled selected>Select 2nd Strand</option>
+      <option ng-repeat="genome in genomes">{{genome.simple_name}}</option>
+    </select>
+
+    <select class="form-control">
+      <option value="" disabled selected>Select 3rd Strand</option>
+      <option ng-repeat="genome in genomes">{{genome.simple_name}}</option>
+    </select>
+
+    <button>Compare</button>
+
+    <br><br>
+    <textarea class="form-control">{{genomes}}</textarea>
+
+
+
+</div>
