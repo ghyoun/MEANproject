@@ -1,21 +1,31 @@
-.indexButton {
 
-    cursor: pointer;
-    width: 20%;
-    display: block;
-    border: none;
+/*index.html*/
+
+.content { /*center vertically and horizontally*/
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center
 }
-.nameInputText {
-    text-transform:capitalize;
+
+.footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+   text-align: center
 }
-ul {
-    list-style-type: none;
-}
+
+/*end of index.html*/
+
+
 .left_margin {
     margin-left: 4em;
 }
 .navbar-nav.nav-justified > li{
     float:none;
 }
-
-

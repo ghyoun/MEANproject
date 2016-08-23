@@ -1,35 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="app">
 <head>
   <meta charset="UTF-8">
   <title>Genesis</title>
 </head>
-<body ng-app="app">
+<body ng-controller="MainController">
  
- <h3 style="text-align:center">Genesis</h3>
-<nav class="navbar navbar-inverse">
-    <ul class="nav navbar-nav nav-justified">
-      <li><a href="#/">Compare</a></li>
-      <li><a href="#/partial2">Page 2</a></li> 
-      <li><a href="#/index">Index</a></li> 
-    </ul>
-</nav>
+ <header ng-if="currentPage !== '/'">
+    <h3 style="text-align:center">Genesis</h3>
+    <nav class="navbar navbar-inverse">
+        <ul class="nav navbar-nav nav-justified">
+          <li><a href="#/">Index</a></li>
+          <li><a href="#/partial2">Page 2</a></li> 
+          <li><a href="#/compare">Compare</a></li> 
+        </ul>
+    </nav>
+</header>
 
 
-    <div ng-view></div>
 
+<div ng-view></div>
+
+
+
+<!-- Links to API for development -->
+<div ng-if="currentPage !== '/'">
     <h4>&nbsp;</h4>
     <h4 style="text-align: center">json: <a href="/genomes">genomes</a> - 
     <a href="/test2">test2</a> - 
-    <a href="/test3">test3</a> - 
-    <a href="/test4">test4</a></h4>
+    <a href="/test3">test3</a> </h4>
     <h4>&nbsp;</h4>
+</div>
+<!-- End of links to API for development -->
+
 
 </body>
 <script src="angular/angular.js"></script>
 <script src="angular-route/angular-route.js"></script>
 <script src="assets/app.js"></script>
-<!-- <script src="assets/controllers/indexController.js"></script> -->
+<script src="assets/controllers/MainController.js"></script>
+<script src="assets/controllers/indexController.js"></script>
 <script src="assets/factories/compareFactory.js"></script>
 <script src="assets/controllers/compareController.js"></script>
 <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
