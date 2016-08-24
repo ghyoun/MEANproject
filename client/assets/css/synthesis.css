@@ -1,0 +1,9 @@
+.synthesis_container {
+        background-image: url(/assets/images/synthesis/greyboxesdecoration.png), url(/assets/images/synthesis/images.png) ;
+            background-position: 100% 25%, 80% 50%;
+            background-repeat:  no-repeat;
+            /*background-attachment: fixed;*/
+            /*background-size:  cover;*/
+            background-color: #f6f6f6;
+            height:100vh
+}
