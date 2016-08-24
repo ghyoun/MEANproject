@@ -1,6 +1,5 @@
 /*index.html*/
 
-
 .splash_wrapper {
     background-image: url(/assets/images/splash/genesisbackground.jpg) ;
             background-position: center center;
@@ -55,7 +54,7 @@
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    padding-top: 8px;
+    padding-top: 12px;
     font-size: 0.8em;
 }​​​​​​​​​
 
