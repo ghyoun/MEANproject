@@ -7,7 +7,7 @@
 <body ng-controller="MainController">
  
  <header ng-if="currentPage !== '/'">
-    <nav class="navbar navbar-light bg-faded">
+    <nav class="navbar navbar-light bg-faded navbar-fixed-top">
       <a class="navbar-brand" href=""><img src="assets/images/main/genesislogo.png"></a>
       <ul class="nav navbar-nav">
         <li class="nav-item">
@@ -30,13 +30,11 @@
 
 
 <!-- Links to API for development -->
-<div ng-if="currentPage !== '/'">
+<!-- <div ng-if="currentPage !== '/'">
     <h4>&nbsp;</h4>
-    <h4 style="text-align: center">json: <a href="/genomes">genomes</a> - 
-    <a href="/test2">test2</a> - 
-    <a href="/test3">test3</a> </h4>
+    <h4 style="text-align: center">json: <a href="/genomes">genomes</a></h4>
     <h4>&nbsp;</h4>
-</div>
+</div> -->
 <!-- End of links to API for development -->
 
 <div class="main_footer" ng-if="currentPage !== '/'">
@@ -50,8 +48,8 @@
 <script src="assets/app.js"></script>
 <script src="assets/controllers/MainController.js"></script>
 <script src="assets/controllers/indexController.js"></script>
-<script src="assets/factories/compareFactory.js"></script>
-<script src="assets/controllers/compareController.js"></script>
+<script src="assets/factories/analysisFactory.js"></script>
+<script src="assets/controllers/analysisController.js"></script>
 <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
 
 <link rel="stylesheet" type="text/css" href="assets/css/index.css"> <!-- splash page -->

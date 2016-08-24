@@ -3,7 +3,7 @@
         background-image: url(/assets/images/main/greydecorationbarsaroundimage.png), url(/assets/images/main/bannerimage.png) ;
             background-position: 100% 25%, 80% 50%;
             background-repeat:  no-repeat;
-            background-attachment: fixed;
+            /*background-attachment: fixed;*/
             /*background-size:  cover;*/
             background-color: #f6f6f6;
             height:100vh
@@ -20,9 +20,10 @@
 
 .analysis_content {
     width: 50%;
-    padding-top: 5%;
     padding-bottom: 5%;
     background-image: url(/assets/images/main/goldborderboxesdesign.png) ;
+    background-repeat: no-repeat;
+    background-position: left top; 
 
 
             
@@ -43,14 +44,14 @@
 .ref_genome_select {
     outline: 1px solid #ddb06f;
     color: #ddb06f;
-    /*width: 268px;*/
-    padding: 10px;
+    width: 120px;
+    padding: 6px;
     font-size: 12px;
     line-height: 1;
     border: 0;
     border-radius: 0px;
-    height: 30px;
-    background: url(/assets/images/main/golddropdownarrow.png) no-repeat right transparent;
+    height: 22px;
+    background: url(/assets/images/main/golddropdownarrow.png) no-repeat 90% 50% transparent;
     -webkit-appearance: none;
      margin: 1em 1em 1em 0em;
 }
@@ -59,13 +60,13 @@
     outline: 1px solid #000000;
     color: #000000;
     padding: 5px;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1;
     border: 0;
     border-radius: 0px;
     height: 20px;
     width: 80px;
-    background: url(/assets/images/main/golddropdownarrow.png) no-repeat right transparent;
+    background: url(/assets/images/main/golddropdownarrow.png) no-repeat 90% 50% transparent;
     -webkit-appearance: none;
      margin: 1em 1.5em 1em 0em;
 }
@@ -82,8 +83,8 @@
     background:url(/assets/images/main/submit.png) no-repeat;
     cursor:pointer;
     border:none;
-    width:89px;
-    height:29px;
+    width:90px;
+    height:30px;
     opacity: 1;
     margin-left: 20%;
 }

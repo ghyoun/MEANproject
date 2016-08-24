@@ -1,4 +1,4 @@
-app.factory('compareFactory', function($http){
+app.factory('analysisFactory', function($http){
     
     var factory = {};
 
