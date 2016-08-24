@@ -1,4 +1,9 @@
-var app = angular.module('app', ['ngRoute']);
+var app = angular.module('app', ['ngRoute', 'app.controllers', 'app.directives']);
+
+    angular.module('d3', []);
+    angular.module('app.controllers', []);
+    angular.module('app.directives', [ 'd3' ]);
+
 
 app.config(function ($routeProvider) {
     $routeProvider.when('/', {
@@ -13,11 +18,11 @@ app.config(function ($routeProvider) {
         templateUrl: 'assets/partials/genesis.html',
         controller: 'compareController'
     })
-        .when('/synthesis', {
+    .when('/synthesis', {
         templateUrl: 'assets/partials/synthesis.html',
         // controller: 'compareController'
     })
-            .when('/phylogenetics', {
+    .when('/phylogenetics', {
         templateUrl: 'assets/partials/phylogenetics.html',
         // controller: 'compareController'
     })
