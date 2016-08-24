@@ -2,8 +2,9 @@ app.controller('analysisController', function(analysisFactory, $location, $route
 
     $rootScope.currentPage = $location.path();
     var _this = this;
-    _this.reference;
-    _this.compare1;
+    // _this.reference;
+    _this.test = "HELLLO";
+    // _this.compare1;
 
     // $scope.id = $routeParams.id;
 
@@ -36,20 +37,23 @@ app.controller('analysisController', function(analysisFactory, $location, $route
 
     $scope.submit = function(){
         if ($scope.genome_ref != 'Reference' && $scope.genome_comp1 != '1st') {
+            _this.reference = "Pressed Submit"
+            console.log(_this.reference)
             $location.path('/analysis/results');
             var genome_ref = {
                 simple_name : $scope.genome_ref
             }
-            analysisFactory.getGenome(genome_ref, function(data) {
-                console.log(data.data.genome);
+            analysisFactory.getGenome(genome_ref).then(function(data) {
+                // console.log(data.data.genome);
                 _this.reference = data.data.genome;
                 console.log(_this.reference);
+            
             });
             var genome_comp1 = {
                 simple_name : $scope.genome_comp1
             }
             analysisFactory.getGenome(genome_comp1, function(data) {
-                console.log(data.data.genome);
+                // console.log(data.data.genome);
                 _this.compare1 = data.data.genome;
             });
 
@@ -57,6 +61,10 @@ app.controller('analysisController', function(analysisFactory, $location, $route
 
     };
 
+    console.log("Created")
+    $scope.$on("$destroy", function handler() {
+        console.log("Destroyed");
+    });
 
 
 });
