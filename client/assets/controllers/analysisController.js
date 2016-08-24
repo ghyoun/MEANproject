@@ -1,13 +1,12 @@
-app.controller('compareController', function(compareFactory, $location, $routeParams, $scope, $rootScope){
+app.controller('analysisController', function(analysisFactory, $location, $routeParams, $scope, $rootScope){
 
     $rootScope.currentPage = $location.path();
 
     // $scope.id = $routeParams.id;
 
     var index = function(){
-        compareFactory.index(function(data){
+        analysisFactory.index(function(data){
             $scope.genomes = data.data;
-            console.log(data)
         });
     };
     index();
@@ -15,6 +14,10 @@ app.controller('compareController', function(compareFactory, $location, $routePa
     // $scope.cancel = function(){
     //     window.history.back();
     // };
+
+    $scope.submit = function(){
+        $location.path('/analysis/results');
+    };
 
 
 

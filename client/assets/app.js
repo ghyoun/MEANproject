@@ -11,20 +11,24 @@ app.config(function ($routeProvider) {
         controller: 'indexController'
     })
     .when('/genesis', {
-        templateUrl: 'assets/partials/genesis.html',
-        controller: 'compareController'
+        templateUrl: 'assets/partials/analysis.html',
+        controller: 'analysisController'
     })
     .when('/analysis', {
-        templateUrl: 'assets/partials/genesis.html',
-        controller: 'compareController'
+        templateUrl: 'assets/partials/analysis.html',
+        controller: 'analysisController'
+    })
+    .when('/analysis/results', {
+        templateUrl: 'assets/partials/analysis_results.html',
+        controller: 'analysisController'
     })
     .when('/synthesis', {
         templateUrl: 'assets/partials/synthesis.html',
-        // controller: 'compareController'
+        // controller: 'analysisController'
     })
     .when('/phylogenetics', {
         templateUrl: 'assets/partials/phylogenetics.html',
-        // controller: 'compareController'
+        // controller: 'analysisController'
     })
     .otherwise({
         redirectTo: '/'
