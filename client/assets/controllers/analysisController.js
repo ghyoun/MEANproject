@@ -5,7 +5,7 @@ app.controller('analysisController', function(analysisFactory, $location, $route
     _this.reference;
     _this.compare1;
 
-    // $scope.id = $routeParams.id;
+
 
     var index = function(){
         analysisFactory.index(function(data){
@@ -35,24 +35,28 @@ app.controller('analysisController', function(analysisFactory, $location, $route
 
 
     $scope.submit = function(){
-        var genome_ref = {
-            simple_name : $scope.genome_ref
+        if ($scope.genome_ref != 'Reference' && $scope.genome_comp1 != '1st') {
+            console.log(_this.reference)
+            var genome_ref = {
+                simple_name : $scope.genome_ref
+            }
+            analysisFactory.getGenome(genome_ref).then(function(data) {
+                _this.reference = data.data.genome;
+            });
+            var genome_comp1 = {
+                simple_name : $scope.genome_comp1
+            }
+            analysisFactory.getGenome(genome_comp1, function(data) {
+                _this.compare1 = data.data.genome;
+            });
+
+            for (var i = 0; i < _this.reference.sequence.length; i += 3) {
+                var newCodon = _this.reference.sequence[i] + _this.reference.sequence[i+1] + _this.reference.sequence[i+2];
+                console.log(newCodon);
+                analysisService.addReferenceCodon(newCodon);
+            }
+            $location.path('/analysis/results');
         }
-        analysisFactory.getGenome(genome_ref, function(data) {
-            _this.reference = data.data.genome;
-        });
-        var genome_comp1 = {
-            simple_name : $scope.genome_comp1
-        }
-        analysisFactory.getGenome(genome_comp1, function(data) {
-            _this.compare1 = data.data.genome;
-        });
-        for (var i = 0; i < _this.reference.sequence.length; i += 3) {
-            var newCodon = _this.reference.sequence[i] + _this.reference.sequence[i+1] + _this.reference.sequence[i+2];
-            console.log(newCodon);
-            analysisService.addReferenceCodon(newCodon);
-        }
-        $location.path('/analysis/results');
 
     };
 
@@ -68,7 +72,6 @@ app.controller('analysisController', function(analysisFactory, $location, $route
     //     }
     //
     // }
-
 
 
 });
