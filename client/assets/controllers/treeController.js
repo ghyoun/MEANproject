@@ -5,7 +5,7 @@
 		.controller('treeController', treesCtrl)
 		.directive("phyTree", ['d3', phyTreeDirective])
 
-	function treesCtrl(compareFactory, $location, $scope){
+	function treesCtrl($location, $scope){
 
 		$scope.tree = {
 			name:"flare",
@@ -47,20 +47,20 @@
 		return{
     		restrict: "EA",
     		link: function($scope, elem, attrs){
-    			console.log($scope)
+    			// console.log($scope)
+    			d3.select("svg").remove()
 
-    			var canvas = d3.select("body").append("svg")
+    			var canvas = d3.select("#tree").append("svg")
     				.attr("width", 700)
     				.attr("height", 900)
 
     			var tree = d3.layout.tree()
     				.size([400, 400])
 
-
 				var nodes = tree.nodes($scope.tree)
 				// console.log(nodes)
 				var links = tree.links(nodes);
-				console.log(links)
+				// console.log(links)
 
 				var node = canvas.selectAll(".node")
 					.data(nodes)
