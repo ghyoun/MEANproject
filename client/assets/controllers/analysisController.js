@@ -15,6 +15,11 @@ app.controller('analysisController', function(analysisFactory, $location, $route
     //     window.history.back();
     // };
 
+
+    var getAmino = function() {
+
+    }
+
     $scope.submit = function(){
         $location.path('/analysis/results');
     };
