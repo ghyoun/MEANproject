@@ -2,13 +2,14 @@
 	'use strict'
 	angular
 		.module('app')
-		.controller('treeController', treesCtrl)
+		.controller('d3Controller', d3Ctrl)
 		.directive("phyTree", ['d3', phyTreeDirective])
+		.directive("barGraph", ['d3', barChartDirective])
 
-	function treesCtrl($location, $scope){
+	function d3Ctrl($location, $scope){
 
 		$scope.tree = {
-			name:"flare",
+			name:"HIV-1 isolate Cameroon1(ViroSeq) HIV DR 46 from Cameroon pol protein (pol) gene, partial cds",
 			children: [	
 				{
 					name: "A",
@@ -41,6 +42,20 @@
 				},
 			]
      	}
+
+     	$scope.bar = [
+     		{name: "Gary"},
+     		{name: "Gary"},
+     		{name: "Gary"},
+     		{name: "Gary"},
+     		{name: "Dan"},
+     		{name: "Dan"},
+     		{name: "Gabe"},
+     		{name: "Gabe"},
+     		{name: "Gabe"},
+     		{name: "Young"},
+     	]
+
 	}
 
 	function phyTreeDirective(d3){
@@ -48,11 +63,12 @@
     		restrict: "EA",
     		link: function($scope, elem, attrs){
     			// console.log($scope)
-    			d3.select("svg").remove()
+    			d3.select(".phyTree").remove()
 
     			var canvas = d3.select("#tree").append("svg")
-    				.attr("width", 700)
-    				.attr("height", 900)
+    				.attr("width", 500)
+    				.attr("height", 400)
+    				.attr("class", "phyTree")
 
     			var tree = d3.layout.tree()
     				.size([400, 400])
@@ -67,7 +83,8 @@
 					.enter()
 					.append("g")
 						.attr("class", "node")
-						.attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")" })
+						.attr("transform", function(d) { return "translate(" + (d.y+10) + "," + (d.x) + ")" })
+						
 
 				node.append("circle")
 					.attr("r", 5)
@@ -75,9 +92,11 @@
 
 				node.append("text")
 					.text( function(d) { return d.name })
+					.attr("dx", -5)
+					.attr("dy", -8)
 
 				var diagonal = d3.svg.diagonal()
-					.projection( function(d) { return [d.y, d.x] })
+					.projection( function(d) { return [d.y+5, d.x] })
 
 				canvas.selectAll(".link")
 					.data(links)
@@ -85,11 +104,26 @@
 					.append("path")
 					.attr("class", "link")
 					.attr("fill", "none")
-					.attr("stroke", "#ADADAD")
+					.attr("stroke", "#c8c6c6")
 					.attr("d", diagonal)
   			
     		}
   		};
+	}
+
+	function barChartDirective(d3){
+		return{
+    		restrict: "EA",
+    		link: function($scope, elem, attrs){
+    			d3.select(".barChart").remove()
+
+				var canvas = d3.select("#bar").append("svg")
+    				.attr("width", 500)
+    				.attr("height", 400)
+    				.attr("class", "barChart")
+
+    		}
+    	}
 	}
 
 })()
