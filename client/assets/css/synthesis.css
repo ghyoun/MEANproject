@@ -1,9 +1,45 @@
 .synthesis_container {
-        background-image: url(/assets/images/synthesis/greyboxesdecoration.png), url(/assets/images/synthesis/images.png) ;
-            background-position: 100% 25%, 80% 50%;
-            background-repeat:  no-repeat;
-            /*background-attachment: fixed;*/
-            /*background-size:  cover;*/
-            background-color: #f6f6f6;
-            height:100vh
+    font-family: 'Din Alternate Light';
+    font-size: 15.5;
+    background-image: url(/assets/images/synthesis/greyboxesdecoration.png), url(/assets/images/synthesis/images.png) ;
+        background-position: 100% 25%, 50% 65%;
+        background-repeat:  no-repeat;
+        /*background-attachment: fixed;*/
+        /*background-size:  cover;*/
+        height:100vh;
+
+  }
+.synthesis_content {
+    position: absolute;
+    right: 15%;
+    bottom: 20%;
+    outline: 1px solid red;
+    color: #ddb06f;
+    text-align: center;
+}
+.heading_white {
+    font-family: 'Din Alternate Medium';
+    font-size: 22;
+    color: #ffffff;
+}
+.subheading_var {
+    font-family: 'Din Alternate Light';
+    font-size: 13;
+    color: #999999;
+}
+.synthesis_button {
+
+    background:url(/assets/images/synthesis/calculatebutton.png) no-repeat;
+    cursor:pointer;
+    border:none;
+    width:90px;
+    height:30px;
+    opacity: 1;
+    margin: 20% 0% 3%;
+}
+.synthesis_button:hover {
+  opacity: 0.65;
+}
+.synthesis_button:active {
+     opacity: 0.15;
 }
