@@ -20,7 +20,7 @@ app.config(function ($routeProvider) {
     })
     .when('/analysis/results', {
         templateUrl: 'assets/partials/analysis_results.html',
-        controller: 'analysisController'
+        controller: 'resultsController'
     })
     .when('/synthesis', {
         templateUrl: 'assets/partials/synthesis.html',
