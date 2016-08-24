@@ -12,4 +12,16 @@ module.exports = {
     });
   },
 
+  findGenome : function(req, res) {
+      Genome.findOne(req.body, function(err, dbGenome) {
+          if (err) {
+              res.json({status: false, errors: err});
+          } else if (!dbGenome) {
+              res.json({status: false});
+          } else {
+              res.json({status: true, genome: dbGenome});
+          }
+      })
+  }
+
 };

@@ -10,6 +10,12 @@ app.factory('analysisFactory', function($http){
       });
     };
 
+    factory.getGenome = function(simple_name, callback) {
+        $http.post('/getGenome', simple_name).then(function(returned_data) {
+            callback(returned_data)
+        });
+    }
+
     factory.getAmino = function(codon, callback) {
         $http.post('/getAmino', codon).then(function(returned_data) {
             callback(returned_data)
