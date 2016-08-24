@@ -1,0 +1,95 @@
+
+.analysis_container {
+        background-image: url(/assets/images/main/greydecorationbarsaroundimage.png), url(/assets/images/main/bannerimage.png) ;
+            background-position: 100% 25%, 80% 50%;
+            background-repeat:  no-repeat;
+            background-attachment: fixed;
+            /*background-size:  cover;*/
+            background-color: #f6f6f6;
+            height:100vh
+}
+.sidedots {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding-left: 2%;
+  padding-right: 7%;
+}
+
+.analysis_content {
+    width: 50%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    background-image: url(/assets/images/main/goldborderboxesdesign.png) ;
+
+
+            
+}
+
+.center_vertical {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.analysis_content_subheading1 {
+    padding: 5% 0% 5% 0%;
+}
+
+
+.ref_genome_select {
+    outline: 1px solid #ddb06f;
+    color: #ddb06f;
+    /*width: 268px;*/
+    padding: 10px;
+    font-size: 12px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0px;
+    height: 30px;
+    background: url(/assets/images/main/golddropdownarrow.png) no-repeat right transparent;
+    -webkit-appearance: none;
+     margin: 1em 1em 1em 0em;
+}
+
+.comp_genome_select {
+    outline: 1px solid #000000;
+    color: #000000;
+    padding: 5px;
+    font-size: 12px;
+    line-height: 1;
+    border: 0;
+    border-radius: 0px;
+    height: 20px;
+    width: 80px;
+    background: url(/assets/images/main/golddropdownarrow.png) no-repeat right transparent;
+    -webkit-appearance: none;
+     margin: 1em 1.5em 1em 0em;
+}
+
+
+.analysis_text {
+    padding: 5% 0% 5% 10%;
+    width: 80%;
+    color: #999999;
+}
+
+.analysis_button {
+
+    background:url(/assets/images/main/submit.png) no-repeat;
+    cursor:pointer;
+    border:none;
+    width:89px;
+    height:29px;
+    opacity: 1;
+    margin-left: 20%;
+}
+.analysis_button:hover {
+  opacity: 0.65;
+}
+.analysis_button:active {
+     opacity: 0.15;
+}

@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'Din Alternate Light';
+    src: url('/assets/fonts/DIN Alternate Light.ttf');
+}
+@font-face {
+    font-family: 'Din Alternate Medium';
+    src: url('/assets/fonts/DIN Alternate Medium.ttf');
+}
+@font-face {
+    font-family: 'Helvetica LT Light';
+    src: url('/assets/fonts/Helvetica LT Light.ttf');
+}
+
+body {
+    background: #f6f6f6;
+    font-family: 'Din Alternate Light';
+    color: #000000;
+}
+a {
+    color: #000000;
+}
+
+.left_margin {
+    margin-left: 4em;
+}
+/*.navbar-nav.nav-justified > li{
+    float:none;
+}*/
+
+/*Nav*/
+ #nav_1 {
+    padding-top: 18px;
+    padding-left: 10px;
+    position: absolute;
+    width:110px;
+ }
+  #nav_2 {
+    padding-top: 18px;
+    padding-left: 15px;
+    position: absolute;
+    width:160px;
+
+ }
+  #nav_3 {
+    padding-top: 18px;
+    padding-left: 5px;
+    position: absolute;
+    width:80px;
+ }
+/*End of Nav*/
+
+
+/*Footer*/
+
+
+
+
+
+.main_footer {
+   position:fixed;
+   left:2%;
+   bottom:0px;
+   height:25px;
+   width:100%;
+   padding-right:4%;
+}
+.main_footer_left {
+    float: left;
+    font-family: 'Helvetica LT Light';
+    font-size: 11px;
+    color: #999999;
+}
+.main_footer_right {
+    float: right;
+    font-family: 'Din Alternate Light';
+    font-size: 14px;
+    color: #ddb06f;
+}
+/*End of Footer*/
