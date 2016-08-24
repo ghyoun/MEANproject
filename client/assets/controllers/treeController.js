@@ -5,11 +5,11 @@
 		.controller('treeController', treesCtrl)
 		.directive("phyTree", ['d3', phyTreeDirective])
 
-	function treesCtrl(compareFactory, $location, $scope){
+	function treesCtrl($location, $scope){
 
 		$scope.tree = {
 			name:"flare",
-			children: [	
+			children: [
 				{
 					name: "A",
 					children: [
@@ -87,7 +87,7 @@
 					.attr("fill", "none")
 					.attr("stroke", "#ADADAD")
 					.attr("d", diagonal)
-  			
+
     		}
   		};
 	}

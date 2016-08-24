@@ -27,5 +27,34 @@ var genomeSchema = mongoose.Schema({
 
 }, {timestamps: true});
 
+var aminoAcidCodonSchema = mongoose.Schema({
+    first: {
+        type: String,
+        required: true
+    },
+
+    second: {
+        type: String,
+        required: true
+    },
+
+    third: {
+        type: String,
+        require: true
+    },
+
+    full_name: {
+        type: String
+    },
+
+    short_name: {
+        type: String
+    },
+
+});
+
+
 //to call the genomes use this model call
 var Genome = mongoose.model('Genome', genomeSchema);
+
+var AminoAcid = mongoose.model('AminoAcid', aminoAcidCodonSchema)
