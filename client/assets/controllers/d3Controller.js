@@ -106,10 +106,11 @@
 					.attr("fill", "none")
 					.attr("stroke", "#c8c6c6")
 					.attr("d", diagonal)
-  			
+
     		}
   		};
 	}
+
 
 	function barChartDirective(d3){
 		return{
@@ -127,3 +128,4 @@
 	}
 
 })()
+
