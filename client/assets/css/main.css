@@ -28,9 +28,18 @@ a {
 }*/
 
 /*Nav*/
+#genesis_navbar {
+    background-color: #ffffff;
+    padding: 2.5em 2.5em 1em 2.5em;
+    border-bottom: 2px solid #c8c8c8;
+}
+ul.nav {
+    padding-left: 6em;
+    padding-top: 1em;
+}
  #nav_1 {
     padding-top: 18px;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
     position: absolute;
     width:110px;
  }

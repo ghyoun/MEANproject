@@ -1,6 +1,6 @@
 
 .analysis_container {
-        background-image: url(/assets/images/main/greydecorationbarsaroundimage.png), url(/assets/images/main/bannerimage.png) ;
+        background-image: url(/assets/images/analysis/greydecorationbarsaroundimage.png), url(/assets/images/analysis/bannerimage.png) ;
             background-position: 100% 25%, 80% 50%;
             background-repeat:  no-repeat;
             /*background-attachment: fixed;*/
@@ -21,7 +21,7 @@
 .analysis_content {
     width: 50%;
     padding-bottom: 5%;
-    background-image: url(/assets/images/main/goldborderboxesdesign.png) ;
+    background-image: url(/assets/images/analysis/goldborderboxesdesign.png) ;
     background-repeat: no-repeat;
     background-position: left top; 
 
@@ -51,7 +51,7 @@
     border: 0;
     border-radius: 0px;
     height: 22px;
-    background: url(/assets/images/main/golddropdownarrow.png) no-repeat 90% 50% transparent;
+    background: url(/assets/images/analysis/golddropdownarrow.png) no-repeat 90% 50% transparent;
     -webkit-appearance: none;
      margin: 1em 1em 1em 0em;
 }
@@ -66,7 +66,7 @@
     border-radius: 0px;
     height: 20px;
     width: 80px;
-    background: url(/assets/images/main/golddropdownarrow.png) no-repeat 90% 50% transparent;
+    background: url(/assets/images/analysis/blackdropdownarro.png) no-repeat 90% 50% transparent;
     -webkit-appearance: none;
      margin: 1em 1.5em 1em 0em;
 }
@@ -80,7 +80,7 @@
 
 .analysis_button {
 
-    background:url(/assets/images/main/submit.png) no-repeat;
+    background:url(/assets/images/analysis/submit.png) no-repeat;
     cursor:pointer;
     border:none;
     width:90px;
