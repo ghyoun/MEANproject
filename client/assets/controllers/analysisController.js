@@ -15,10 +15,21 @@ app.controller('analysisController', function(analysisFactory, $location, $route
     //     window.history.back();
     // };
 
-
-    var getAmino = function() {
-
+    //example of how to use getAmino
+    // var newAmino = getAmino('T', 'C', 'A');
+    //newAmino.full_name -> 'Serine'
+    //newAmino.short_name -> 'Ser'
+    var getAmino = function(firstLetter, secondLetter, thirdLetter) {
+        var codon = {
+            first: firstLetter,
+            second: secondLetter,
+            third: thirdLetter
+        }
+        analysisFactory.getAmino(codon, function(data) {
+            return data.data.aminoacid;
+        })
     }
+
 
     $scope.submit = function(){
         $location.path('/analysis/results');

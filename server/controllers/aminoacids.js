@@ -11,4 +11,16 @@ module.exports = {
       });
     },
 
+    findName : function(req, res) {
+        AminoAcid.findOne(req.body, function(err, dbAA) {
+            if (err) {
+                res.json({status: false, errors: err});
+            } else if (!dbAA) {
+                res.json({status: false});
+            } else {
+                res.json({status: true, aminoacid: dbAA});
+            }
+        })
+    }
+
 };
