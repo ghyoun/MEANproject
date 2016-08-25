@@ -111,13 +111,13 @@
             background-color: #f6f6f6;
             height:100vh
 }
-.analysis_results_container {
+/*.analysis_results_container {
     background-color: #14233c;
     height:100%;
     width:100%;
     padding-top: 12%;
     padding-left: 14%;
-}
+}*/
 #legend_bar {
     position: absolute;
     right: 20%;
@@ -248,9 +248,9 @@
 .sequence_box_black::-webkit-scrollbar-thumb {
       background-color: #000000; 
 } /* this will style the thumb, ignoring the track */
-.results_heading_ref {
+/*.results_heading_ref {
     color: #ddb06f;
 }
 .results_heading_comp {
     color: #ffffff;
-}
+}*/
