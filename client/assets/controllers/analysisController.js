@@ -22,27 +22,41 @@ app.controller('analysisController', function(analysisFactory, $location, $route
     // var newAmino = getAmino('T', 'C', 'A');
     //newAmino.full_name -> 'Serine'
     //newAmino.short_name -> 'Ser'
-    var getAmino = function(firstLetter, secondLetter, thirdLetter) {
+    var enterAmino = function(firstLetter, secondLetter, thirdLetter) {
         var codon = {
             first: firstLetter,
             second: secondLetter,
             third: thirdLetter
         }
         analysisFactory.getAmino(codon, function(data) {
-            return data.data.aminoacid;
+            console.log(data.data.aminoacid.short_name);
+            analysisService.addReferenceAmino(data.data.aminoacid.short_name);
         })
     }
+
+    $scope.addCodons = function(sequence) {
+        for (var i = 0; i < sequence.length; i += 3) {
+            var newCodon = sequence[i] + sequence[i+1] + sequence[i+2];
+            console.log(newCodon);
+            analysisService.addReferenceCodon(newCodon);
+
+            enterAmino(sequence[i], sequence[i+1], sequence[i+2]);
+        }
+    }
+
 
 
     $scope.submit = function(){
         if ($scope.genome_ref != 'Reference' && $scope.genome_comp1 != '1st') {
-            console.log(_this.reference)
             var genome_ref = {
                 simple_name : $scope.genome_ref
             }
             analysisFactory.getGenome(genome_ref).then(function(data) {
                 _this.reference = data.data.genome;
+                console.log(_this.reference);
+                $scope.addCodons(_this.reference.sequence);
             });
+            console.log(_this.reference);
             var genome_comp1 = {
                 simple_name : $scope.genome_comp1
             }
@@ -50,15 +64,14 @@ app.controller('analysisController', function(analysisFactory, $location, $route
                 _this.compare1 = data.data.genome;
             });
 
-            for (var i = 0; i < _this.reference.sequence.length; i += 3) {
-                var newCodon = _this.reference.sequence[i] + _this.reference.sequence[i+1] + _this.reference.sequence[i+2];
-                console.log(newCodon);
-                analysisService.addReferenceCodon(newCodon);
-            }
+
+
             $location.path('/analysis/results');
         }
 
     };
+
+
 
     // $scope.compare = function(sequence1, sequence2) {
     //     if (sequence1 <= sequence2) {

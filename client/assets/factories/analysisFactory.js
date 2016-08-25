@@ -1,4 +1,4 @@
-app.factory('analysisFactory', function($http){
+app.factory('analysisFactory', function($http, analysisService){
 
     var factory = {};
 

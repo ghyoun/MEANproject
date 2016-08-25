@@ -18,6 +18,14 @@ app.service('analysisService', function() {
       return reference_codon;
   };
 
+  var addReferenceAmino = function(amino) {
+      reference_amino.push(amino);
+  };
+
+  var getReferenceAmino = function(){
+      return reference_amino;
+  };
+
   var addCompare1Codon= function(codon) {
       compare1_codon.push(codon);
   };
@@ -53,6 +61,8 @@ app.service('analysisService', function() {
   return {
     addReferenceCodon: addReferenceCodon,
     getReferenceCodon: getReferenceCodon,
+    addReferenceAmino: addReferenceAmino,
+    getReferenceAmino: getReferenceAmino,
     addCompare1Codon: addCompare1Codon,
     getCompare1Codon: getCompare1Codon,
     addCompare2Codon: addCompare2Codon,
