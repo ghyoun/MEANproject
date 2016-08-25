@@ -16,7 +16,7 @@ module.exports = {
             if (err) {
                 res.json({status: false, errors: err});
             } else if (!dbAA) {
-                res.json({status: false});
+                res.json({status: false, aminoacid: 'XXX'});
             } else {
                 res.json({status: true, aminoacid: dbAA});
             }
