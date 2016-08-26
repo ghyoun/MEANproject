@@ -1,13 +1,17 @@
-
 .analysis_container {
-        background-image: url(/assets/images/analysis/greydecorationbarsaroundimage.png), url(/assets/images/analysis/bannerimage.png) ;
-            background-position: 100% 25%, 65% 50%;
-            background-repeat:  no-repeat;
-            /*background-attachment: fixed;*/
-            /*background-size:  cover;*/
-            background-color: #ededed;
-            height:100vh;
-            padding-left: 20%;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+
+    background-image: url(/assets/images/analysis/greydecorationbarsaroundimage.png), url(/assets/images/analysis/bannerimage.png) ;
+        background-position: 100% 25%, 65% 50%;
+        background-repeat:  no-repeat;
+        /*background-attachment: fixed;*/
+        /*background-size:  cover;*/
+        background-color: #ededed;
+        height:100vh;
+        padding-left: 20%;
+            
 }
 .navigation_bar{
   display:inline-block;
@@ -49,6 +53,7 @@ ul .navigation_bar {
     /*outline: 1px solid red;*/
 
     padding-left: 20px;
+
 }
 
 
@@ -151,6 +156,7 @@ ul .navigation_bar {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+
 }
 .center_horizontal {
   position: absolute;

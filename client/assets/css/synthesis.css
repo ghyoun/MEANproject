@@ -1,22 +1,26 @@
 .synthesis_container {
     font-family: 'Din Alternate Light';
-    font-size: 15.5;
+    font-size: 15.5;        
+}
+.synthesis_background {
     background-image: url(/assets/images/synthesis/greyboxesdecoration.png), url(/assets/images/synthesis/images.png), radial-gradient(circle, #15152d, #26284e);
         background-position: 100% 25%, 45% 55%;
         background-repeat:  no-repeat;
-        /*background-attachment: fixed;*/
-        /*background-size:  cover;*/
         height:100vh;
 }
 .synthesis_content {
     position: absolute;
+    z-index: 300;
     right: 21.7%;
     bottom: 30%;
     width: 433px;
     height: 336px;
     color: #ddb06f;
-    /*text-align: center;*/
     background:url(/assets/images/synthesis/goldbars.png) no-repeat;
+}
+.synthesis_content_background {
+    width: 298px;
+    background-color: #292d4a;
 }
 #synthesis_equation {
     /*position: absolute;*/

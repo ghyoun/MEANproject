@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="assets/css/analysis_results.css">
   <link rel="stylesheet" type="text/css" href="assets/css/synthesis.css">
   <link rel="stylesheet" type="text/css" href="assets/css/phylogenetic.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/particles.css">
 
 </head>
 <body ng-controller="MainController">
@@ -38,6 +39,7 @@
 
 
 <div ng-view></div>
+</div>
 
 
 
@@ -54,10 +56,21 @@
     <div class="main_footer_right">Terms | Policy</div>
 </div>
 
+
+<div id="particles-js"></div>
+<script src="assets/js/particles.min.js"></script>
+<script src="assets/js/particlesJS.js"></script>
+
+
+
+
+
 </body>
+
 <script src="angular/angular.js"></script>
 <script src="angular-route/angular-route.js"></script>
 <script src="assets/app.js"></script>
+
 <script src="assets/services/analysisService.js"></script>
 <script src="assets/controllers/MainController.js"></script>
 <script src="assets/controllers/indexController.js"></script>

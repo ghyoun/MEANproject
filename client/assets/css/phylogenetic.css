@@ -1,4 +1,8 @@
 .thiscontainer{
+  position: absolute;
+  width: 100%;
+  z-index: 100;
+
   background-color: #ededed;
   width: 100%;
   height: auto;
