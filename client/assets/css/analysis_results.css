@@ -2,10 +2,10 @@
     background-color: #14233c;
     /*height:100%;*/
     width:100%;
-    padding-top: 12%;
-    padding-left: 14%;
+    padding-top: 15%;
+    padding-left: 25%;
+    padding-bottom: 10%
 }
-
 .sequence_box_gold {
     width: 70%;
     height: 200px;
@@ -27,15 +27,19 @@
     font-size: 17px;
 }
 
-.sequence_box_gold::-webkit-scrollbar-track {
-      background-color: transparent;
-} /* the new scrollbar will have a flat appearance with the set background color */
+::-webkit-scrollbar {
+    width: 20px;
+}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: transparent; 
+    background-color: transparent;
+}
 .sequence_box_gold::-webkit-scrollbar-thumb {
-      background-color: #ddb06f; 
-} /* this will style the thumb, ignoring the track */
+    background-color: #ddb06f; 
+}
 .sequence_box_black::-webkit-scrollbar-thumb {
-      background-color: #000000; 
-} /* this will style the thumb, ignoring the track */
+    background-color: #000000;
+}
 
 .results_heading_ref {
     color: #ddb06f;
@@ -44,9 +48,23 @@
     color: #ffffff;
 }
 
+.blue {
+    background-color: blue;
+    color: #999999;
+}
+.gold {
+    background-color: gold;
+}
+.red {
+    background-color: red;
+}
+.none {
+    background-color: transparent;
+}
 
 .hover:hover{
     color:#ffffff;
+    text-align: center;
     }
     [data-tooltip]:before {
     content: attr(data-tooltip);
