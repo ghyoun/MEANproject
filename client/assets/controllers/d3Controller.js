@@ -14,19 +14,7 @@
 		$scope.bar2 = analysisService.getBarGraphInfo(2);
 
 		var matrix = [];
-		for (var i = 0; i < 4; i++) {
-
-			var row = [];
-			for (var j = i+1; j < 5; j++) {
-				console.log(i + " " + j)
-				row.push(analysisService.getRelation(i, j));
-			}
-			matrix.push(row);
-		}
-		console.log(matrix);
-
 	}
-
 
 	function chartsDirective(d3){
 		return{
@@ -121,17 +109,20 @@
 					  svg.append("g")
 					      .attr("class", "x axis")
 					      .attr("transform", "translate(0," + height + ")")
-					      .call(xAxis);
+					      .call(xAxis)
+					      .attr("fill", "white")
 
 					  svg.append("g")
 					      .attr("class", "y axis")
 					      .call(yAxis)
+					      .attr("fill", "white")
 					    .append("text")
 					      .attr("transform", "rotate(-90)")
 					      .attr("y", 6)
 					      .attr("dy", ".71em")
 					      .style("text-anchor", "end")
-					      .text("Frequency");
+					      .text("Frequency")
+					      .attr("fill", "white")
 
 					  svg.selectAll(".bar")
 					      .data(data)
@@ -139,8 +130,9 @@
 					      .attr("class", "bar")
 					      .attr("x", function(d) { return x(d.name); })
 					      .attr("width", x.rangeBand())
-					      .attr("y", function(d) { return y(d.freq); }) // orientation
-					      .attr("height", function(d) { return height - y(d.freq); }) // length of the bar
+					      .attr("y", function(d) { return y(d.freq); })
+					      .attr("height", function(d) { return height - y(d.freq); })
+					      .attr("fill", "white")
 
 					function type(d) {
 					  d.freq = +d.freq;
@@ -156,8 +148,9 @@
 							.duration(1500)
 					      	.attr("x", function(d) { return x(d.name); })
 					      	.attr("width", x.rangeBand())
-					      	.attr("y", function(d) { return y(d.freq); }) // orientation
-					      	.attr("height", function(d) { console.log(height - y(d.freq)); return height - y(d.freq); }) // length of the bar
+					      	.attr("y", function(d) { return y(d.freq); })
+					      	.attr("height", function(d) { console.log(height - y(d.freq)); return height - y(d.freq); })
+					      	.attr("fill", "gold")
 					}
 					return bar
 	    		}
