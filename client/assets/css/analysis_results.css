@@ -1,3 +1,7 @@
+#legend_bar {
+    float: right;
+    margin-right: 30%;
+}
 .analysis_results_container {
     background-color: #14233c;
     /*height:100%;*/
@@ -14,6 +18,7 @@
     border: 1px solid #ddb06f;
     border-bottom: 7px solid #ddb06f;
     padding: 1em;
+    padding-top: 1.7em;
     font-size: 18px;
     color: #dcaf73;
 }
@@ -26,6 +31,7 @@
     border: 1px solid #000000;
     border-bottom: 7px solid #000000;
     padding: 1em;
+    padding-top: 1.7em;
     font-size: 18px;
 }
 
