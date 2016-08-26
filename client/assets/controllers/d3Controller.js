@@ -7,9 +7,7 @@
 
 	function d3Ctrl($location, $scope, analysisService){
 
-		$scope.tree = {name:"HIV-1 isolate Cameroon1(ViroSeq) HIV DR 46",children: [{name: "A",children: [{ name: "aaaaaaa" },{ name: "bbbbbbbbb" },{ name: "cccc" },]},{name: "B",children: [{name: "aaaaaaa",children: [{ name: "11111" },{ name: "22" },]},{name: "bbbbbbbbbbbbbbb",children: [{ name: "1111" },{ name: "22" },{ name: "3333333333333" },{ name: "444444444" }]}]},]}
-		console.log(analysisService.getBarGraphInfo(1));
-		console.log(analysisService.getBarGraphInfo(2));
+		// $scope.tree = {name:"HIV-1 isolate Cameroon1",children: [{name: "A",children: [{ name: "aaaaaaa" },{ name: "bbbbbbbbb" },{ name: "cccc" },]},{name: "B",children: [{name: "aaaaaaa",children: [{ name: "11111" },{ name: "22" },]},{name: "bbbbbbbbbbbbbbb",children: [{ name: "1111" },{ name: "22" },{ name: "3333333333333" },{ name: "444444444" }]}]},]}
 		$scope.barfreq = analysisService.getBarGraphInfo(1);
 		$scope.bar2 = analysisService.getBarGraphInfo(2);
 
@@ -27,7 +25,6 @@
 			}
 			matrix.push(row);
 		}
-		console.log(matrix);
 
 		var namesList = analysisService.allNames();
 
@@ -125,7 +122,6 @@
 					}
 					newMatrix.push(tempRow);
 				}
-				console.log(newMatrix);
 				this.matrix = newMatrix;
 			}
 
@@ -197,17 +193,17 @@
 
 		var newTable = new Table(matrix, namesList);
 		newTable.buildTree();
-		console.log(newTable.getTree());
 		newTable.buildTree();
-		console.log(newTable.getTree());
 		newTable.buildTree();
-		console.log(newTable.getTree());
+		$scope.newTable = newTable.getTree()
+		$scope.newTable.analysisService = analysisService
+		console.log($scope.newTable)
 	}
 
-	function chartsDirective(d3){
+	function chartsDirective(d3, analysisService){
 		return{
     		restrict: "EA",
-    		link: function($scope, elem, attrs){
+    		link: function($scope, elem, attrs, analysisService){
 				function phyTree(){
 					var tree = {}
 	    			d3.select(".phyTree").remove()
@@ -220,7 +216,7 @@
 	    			var tree = d3.layout.tree()
 	    				.size([350, 350])
 
-					var nodes = tree.nodes($scope.tree)
+					var nodes = tree.nodes($scope.newTable)
 					var links = tree.links(nodes);
 
 					var node = canvas.selectAll(".node")
@@ -252,9 +248,12 @@
 						.attr("stroke", "#c8c6c6")
 						.attr("d", diagonal)
 
-					function click(d){
+					function click(d, analysisService){
 						console.log("clicked")
-						bar.update($scope.bar2)
+						console.log(d)
+						console.log(d.number)
+						console.log($scope.newTable.analysisService)
+						bar.update($scope.newTable.analysisService.getBarGraphInfo(d.number))
 					}
 					return tree
 	    		}
@@ -341,15 +340,15 @@
 					      	.attr("x", function(d) { return x(d.name); })
 					      	.attr("width", x.rangeBand())
 					      	.attr("y", function(d) { return y(d.freq); })
-					      	.attr("height", function(d) { console.log(height - y(d.freq)); return height - y(d.freq); })
+					      	.attr("height", function(d) { return height - y(d.freq); })
 							.attr("fill", "#ddb06f")
 
 						svg.selectAll("g")
+							.select("text")
 							.transition()
 							.duration(1500)
 							.attr("fill", "#ddb06f")
-							.select("text")
-							.attr("fill", "#ddb06f")
+
 					}
 					return bar
 	    		}
