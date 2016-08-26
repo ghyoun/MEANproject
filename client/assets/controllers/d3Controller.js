@@ -215,11 +215,11 @@
 
 	    			var canvas = d3.select("#tree").append("svg")
 	    				.attr("width", 500)
-	    				.attr("height", 400)
+	    				.attr("height", 500)
 	    				.attr("class", "phyTree")
 
 	    			var tree = d3.layout.tree()
-	    				.size([400, 400])
+	    				.size([350, 350])
 
 					var nodes = tree.nodes($scope.tree)
 					var links = tree.links(nodes);
@@ -298,17 +298,21 @@
 					  svg.append("g")
 					      .attr("class", "x axis")
 					      .attr("transform", "translate(0," + height + ")")
-					      .call(xAxis);
+					      .call(xAxis)
+								.attr("fill", "white")
 
 					  svg.append("g")
 					      .attr("class", "y axis")
 					      .call(yAxis)
+								.attr("fill", "white")
 					    .append("text")
 					      .attr("transform", "rotate(-90)")
 					      .attr("y", 6)
 					      .attr("dy", ".71em")
 					      .style("text-anchor", "end")
-					      .text("Frequency");
+					      .text("Frequency")
+								.attr("fill", "white")
+
 
 					  svg.selectAll(".bar")
 					      .data(data)
@@ -318,6 +322,7 @@
 					      .attr("width", x.rangeBand())
 					      .attr("y", function(d) { return y(d.freq); }) // orientation
 					      .attr("height", function(d) { return height - y(d.freq); }) // length of the bar
+								.attr("fill", "white")
 
 					function type(d) {
 					  d.freq = +d.freq;
@@ -335,6 +340,15 @@
 					      	.attr("width", x.rangeBand())
 					      	.attr("y", function(d) { return y(d.freq); }) // orientation
 					      	.attr("height", function(d) { console.log(height - y(d.freq)); return height - y(d.freq); }) // length of the bar
+									.attr("fill", "#ddb06f")
+
+						svg.selectAll("g")
+							.transition()
+							.duration(1500)
+							.attr("fill", "#ddb06f")
+							.select("text")
+							.attr("fill", "#ddb06f")
+
 					}
 					return bar
 	    		}

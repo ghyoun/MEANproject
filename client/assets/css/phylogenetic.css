@@ -1,0 +1,72 @@
+.thiscontainer{
+  background-color: #ededed;
+  width: 100%;
+  height: auto;
+}
+.synthesis_container {
+    font-family: 'Din Alternate Light';
+    font-size: 15.5;
+    background-image: url(/assets/images/synthesis/greyboxesdecoration.png), url(/assets/images/synthesis/images.png), radial-gradient(circle, #15152d, #26284e);
+        background-position: 100% 25%, 45% 55%;
+        background-repeat:  no-repeat;
+        /*background-attachment: fixed;*/
+        /*background-size:  cover;*/
+        height:100vh;
+}
+#bar {
+  color: white;
+  margin-top: 7%;
+  margin-left: 10%;
+  width: 10%;
+}
+charts{
+  margin-bottom: 0px;
+}
+#photo{
+  margin-top: 25%;
+  margin-left: 25%;
+  margin-bottom: 0px;
+}
+#tree{
+  margin-top: -28.5%;
+  margin-left: 53.5%;
+  margin-bottom: 0%;
+  padding-bottom: 0%;
+  height: 350px;
+  widht: auto;
+}
+.bigbar {
+  background-color: #292c4b;
+  margin-top: 0%;
+  margin-bottom: 3%;
+  margin-left: -5%;
+  width: 60%;
+  height: 740px;
+  margin-left: 20%;
+  margin-top: 6%;
+  padding-top: 7%;
+}
+.gold{
+  padding-bottom: 0px;
+}
+
+.dots{
+  margin-left: 2%;
+  margin-top: -115%;
+  display: inline-block;
+}
+
+#photo {
+  margin-top: 15%;
+  margin-left: 42%;
+  margin-top: 15%;
+  margin-bottom: 10%;
+}
+
+p.header2{
+  margin-left: 30%;
+  font-size: 30px
+  margin-bottom: 0px;
+  position: absolute;
+  width: 100px;
+}

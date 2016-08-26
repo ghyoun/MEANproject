@@ -39,11 +39,11 @@
     width: 20px;
 }
 ::-webkit-scrollbar-track {
-    -webkit-box-shadow: transparent; 
+    -webkit-box-shadow: transparent;
     background-color: transparent;
 }
 .sequence_box_gold::-webkit-scrollbar-thumb {
-    background-color: #ddb06f; 
+    background-color: #ddb06f;
 }
 .sequence_box_black::-webkit-scrollbar-thumb {
     background-color: #000000;
