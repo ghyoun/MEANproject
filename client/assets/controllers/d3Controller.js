@@ -77,7 +77,6 @@
 
 					}
 
-					// var bars = 
 					return tree
 	    		}
 
@@ -148,20 +147,11 @@
 
 			
 					bar.update = function(data2){
-						// console.log("hererere")
-						// console.log(data2)
-						// console.log(svg.selectAll(".bar"))
-
 						
-						// console.log(d3.max(data2, function(d) { return d.freq; }))
-
 					    y.domain([0, d3.max(data2, function(d) { return d.freq; })]);
 
 	    				// d3.select(".barChart").remove()
 						// svg.selectAll(".bar").transition().duration(3000).style("fill", "green")
-						
-						// var bars = svg.selectAll()
-						// height = 500
 
 						svg.selectAll("rect").data(data2)
 							.transition()
