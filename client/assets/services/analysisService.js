@@ -92,7 +92,7 @@ app.service('analysisService', function() {
       var total = compare.length;
       var frequencies = [];
       for (var i = 0; i < 20; i++) {
-          frequencies.push({name:amino[i], frequency:(counts[i]/total), count: counts[i]});
+          frequencies.push({name:amino[i], freq:(counts[i]/total), count: counts[i]});
       }
       return frequencies;
 
