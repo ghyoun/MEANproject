@@ -8,9 +8,10 @@
   <link rel="stylesheet" type="text/css" href="assets/css/index.css"> <!-- splash page -->
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
   <link rel="stylesheet" type="text/css" href="assets/css/analysis.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/analysis_results.css">
 </head>
 <body ng-controller="MainController">
- 
+
  <header ng-if="currentPage !== '/'">
     <nav class="navbar navbar-light bg-faded navbar-fixed-top" id="genesis_navbar">
       <a class="navbar-brand" href=""><img src="assets/images/main/genesislogo.png"></a>
@@ -43,13 +44,15 @@
 <!-- End of links to API for development -->
 
 <div class="main_footer" ng-if="currentPage !== '/'">
-    <div class="main_footer_center">&#169; Copyright 2016 Genesis Ltd. All Rights Reserved</div>
+    <div class="main_footer_left">&#169; Copyright 2016 Genesis Ltd. All Rights Reserved</div>
+    <div class="main_footer_right">Terms | Policy</div>
 </div>
 
 </body>
 <script src="angular/angular.js"></script>
 <script src="angular-route/angular-route.js"></script>
 <script src="assets/app.js"></script>
+<script src="assets/services/analysisService.js"></script>
 <script src="assets/controllers/MainController.js"></script>
 <script src="assets/controllers/indexController.js"></script>
 
@@ -58,6 +61,7 @@
 
 <script src="assets/factories/analysisFactory.js"></script>
 <script src="assets/controllers/analysisController.js"></script>
+<script src="assets/controllers/resultsController.js"></script>
 
 <script src="assets/controllers/synthesisController.js"></script>
 
