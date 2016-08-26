@@ -11,9 +11,30 @@
 
 <div class="container analysis_results_container center_horizontal">
 
-    <h3 class="results_heading_ref">{{reference.definition}}</h3>
-    <textarea class="sequence_box_gold" rows="15">{{reference.sequence}}</textarea>
+    <h3 class="results_heading_ref">ref{{reference.definition}}</h3>
+    <div class="sequence_box_gold"> 
+        <span ng-repeat="val in ref.codon track by $index">
+            <span class="hover" data-tooltip="{{ref.amino[$index]}}" data-tooltip-position="bottom">{{ref.codon[$index]}} </span>
+        </span>
+    </div>
 
-    <h3 class="results_heading_comp">{{compare1.definition}}</h3>
-    <textarea class="sequence_box_black" rows="15">{{compare1.sequence}}</textarea>
-</div>
+    <h3 class="results_heading_comp">comp{{comperence.definition}}</h3>
+    <div class="sequence_box_black"> 
+        <span ng-repeat="val in comp1.codon track by $index">
+            <span class="hover" data-tooltip="{{comp1.amino[$index]}}" data-tooltip-position="bottom">{{comp1.codon[$index]}} </span>
+        </span>
+    </div>
+
+    <h3 class="results_heading_comp">comp{{comperence.definition}}</h3>
+    <div class="sequence_box_black"> 
+        <span ng-repeat="val in comp2.codon track by $index">
+            <span class="hover" data-tooltip="{{comp2.amino[$index]}}" data-tooltip-position="bottom">{{comp2.codon[$index]}} </span>
+        </span>
+    </div>
+
+    <h3 class="results_heading_comp">comp{{comperence.definition}}</h3>
+    <div class="sequence_box_black"> 
+        <span ng-repeat="val in comp3.codon track by $index">
+            <span class="hover" data-tooltip="{{comp3.amino[$index]}}" data-tooltip-position="bottom">{{comp3.codon[$index]}} </span>
+        </span>
+    </div>
