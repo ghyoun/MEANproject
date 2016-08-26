@@ -13,18 +13,20 @@
     word-wrap: break-word;
     border: 1px solid #ddb06f;
     border-bottom: 7px solid #ddb06f;
-    padding: 2em;
-    font-size: 17px;
+    padding: 1em;
+    font-size: 18px;
+    color: #dcaf73;
 }
 .sequence_box_black {
+    background-color: #ffffff;
     width: 70%;
     height: 200px;
     overflow: auto;
     word-wrap: break-word;
     border: 1px solid #000000;
     border-bottom: 7px solid #000000;
-    padding: 2em;
-    font-size: 17px;
+    padding: 1em;
+    font-size: 18px;
 }
 
 ::-webkit-scrollbar {
@@ -49,21 +51,23 @@
 }
 
 .blue {
-    background-color: blue;
-    color: #999999;
+    background-color: #6bc7f0;
+    color: #ffffff;
 }
 .gold {
-    background-color: gold;
+    background-color: #dcaf73;
+    color: #ffffff;
 }
 .red {
-    background-color: red;
+    background-color: #fd8a95;
+    color: #ffffff;
 }
 .none {
     background-color: transparent;
 }
 
 .hover:hover{
-    color:#ffffff;
+    color:#999999;
     text-align: center;
     }
     [data-tooltip]:before {
@@ -83,7 +87,7 @@
     background: #000;
     color: #fff;
     padding: 4px 8px;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 1.4;
     min-width: 100px;
     text-align: center;
