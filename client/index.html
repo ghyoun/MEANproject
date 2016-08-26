@@ -9,21 +9,22 @@
   <link rel="stylesheet" type="text/css" href="assets/css/main.css">
   <link rel="stylesheet" type="text/css" href="assets/css/analysis.css">
   <link rel="stylesheet" type="text/css" href="assets/css/analysis_results.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/synthesis.css">
 </head>
 <body ng-controller="MainController">
 
  <header ng-if="currentPage !== '/'">
     <nav class="navbar navbar-light bg-faded navbar-fixed-top" id="genesis_navbar">
-      <a class="navbar-brand" href=""><img src="assets/images/main/genesislogo.png"></a>
-      <ul class="nav navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#/analysis"><img src="/assets/images/main/navigationunderscore.png" id="nav_1" ng-if="currentPage === '/genesis' || currentPage === '/analysis' || currentPage === '/analysis/results'">Sequence Analysis</a>
+      <a class="logo" href=""><img src="assets/images/main/genesislogo.png" id="nav_logo"></a>
+      <ul class="navigation_bar">
+        <li class="listing_bar">
+          <a class="" href="#/analysis"><img src="/assets/images/main/navigationunderscore.png" id="nav_1" ng-if="currentPage === '/genesis' || currentPage === '/analysis' || currentPage === '/analysis/results'">Sequence Analysis</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#/synthesis"><img src="/assets/images/main/navigationunderscore.png" id="nav_2" ng-if="currentPage === '/synthesis'">Modern Evolution Synthesis</a>
+        <li class="listing_bar">
+          <a class="" href="#/synthesis"><img src="/assets/images/main/navigationunderscore.png" id="nav_2" ng-if="currentPage === '/synthesis'">Modern Evolution Synthesis</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#/phylogenetics"><img src="/assets/images/main/navigationunderscore.png" id="nav_3" ng-if="currentPage === '/phylogenetics'">Phylogenetics</a>
+        <li class="listing_bar">
+          <a class="" href="#/phylogenetics"><img src="/assets/images/main/navigationunderscore.png" id="nav_3" ng-if="currentPage === '/phylogenetics'">Phylogenetics</a>
         </li>
       </ul>
     </nav>
