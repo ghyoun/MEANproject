@@ -31,6 +31,30 @@ app.service('analysisService', function() {
       var compare4_color = [];
   }
 
+  var getRelation = function(number1, number2) {
+      var codonMap = {
+          0:reference_codon,
+          1:compare1_codon,
+          2:compare2_codon,
+          3:compare3_codon,
+          4:compare4_codon
+      }
+      var firstCodon = codonMap[number1];
+      var secondCodon = codonMap[number2];
+      if (firstCodon.length <= secondCodon.length) {
+          var short_length = firstCodon.length;
+      } else {
+          var short_length = secondCodon.length;
+      }
+      var differences = 0;
+      for (var i = 0; i < short_length; i++) {
+          if(firstCodon[i] != secondCodon[i]) {
+              differences++;
+          }
+      }
+      return differences/short_length;
+  }
+
   var getBarGraphInfo = function(number) {
       var compare;
       if (number == 1) {
@@ -270,6 +294,7 @@ app.service('analysisService', function() {
     addInsertion3: addInsertion3,
     addInsertion4: addInsertion4,
     getBarGraphInfo: getBarGraphInfo,
+    getRelation: getRelation,
   };
 
 });

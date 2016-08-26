@@ -10,13 +10,25 @@
 	function d3Ctrl($location, $scope, analysisService){
 
 		$scope.tree = {name:"HIV-1 isolate Cameroon1(ViroSeq) HIV DR 46",children: [{name: "A",children: [{ name: "aaaaaaa" },{ name: "bbbbbbbbb" },{ name: "cccc" },]},{name: "B",children: [{name: "aaaaaaa",children: [{ name: "11111" },{ name: "22" },]},{name: "bbbbbbbbbbbbbbb",children: [{ name: "1111" },{ name: "22" },{ name: "3333333333333" },{ name: "444444444" }]}]},]}
-		$scope.bar = [{name: "Gary"},{name: "Gary"},{name: "Gary"},{name: "Gary"},{name: "Dan"},{name: "Dan"},{name: "Gabe"},{name: "Gabe"},{name: "Gabe"},{name: "Young"},]
 		console.log(analysisService.getBarGraphInfo(1));
 		console.log(analysisService.getBarGraphInfo(2));
 		$scope.barfreq = analysisService.getBarGraphInfo(1);
 		$scope.bar2 = analysisService.getBarGraphInfo(2);
 
+		var matrix = [];
+		for (var i = 0; i < 4; i++) {
+
+			var row = [];
+			for (var j = i+1; j < 5; j++) {
+				console.log(i + " " + j)
+				row.push(analysisService.getRelation(i, j));
+			}
+			matrix.push(row);
+		}
+		console.log(matrix);
+
 	}
+
 
 	function chartsDirective(d3){
 		return{
