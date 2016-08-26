@@ -132,11 +132,7 @@ ul .navigation_bar {
     padding-top: 12%;
     padding-left: 14%;
 }*/
-#legend_bar {
-    position: absolute;
-    right: 20%;
-    bottom: 12%;
-}
+
 .sidedots {
   position: absolute;
   top: 50%;

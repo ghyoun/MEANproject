@@ -7,6 +7,7 @@ app.controller('synthesisController', function($location, $routeParams, $scope, 
     $scope.N;
     $scope.S;
     $scope.P;
+    $scope.A;
 
     $scope.buttonPressed = false;
 
@@ -14,6 +15,12 @@ app.controller('synthesisController', function($location, $routeParams, $scope, 
         if ($scope.buttonPressed==false) {
             $scope.buttonPressed = true;
             $scope.P = ((1 - Math.exp(-2 * $scope.S))/(1 - Math.exp(-4 * $scope.N * $scope.S)));
+            if ($scope.P <= 0.05) {
+                  $scope.A = "Yes.";
+            }
+            if ($scope.P >= 0.05) {
+                  $scope.A = "No.";
+            }
         } else {
             $scope.buttonPressed = false;
         }

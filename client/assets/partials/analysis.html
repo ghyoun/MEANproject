@@ -1,7 +1,6 @@
 <img class="sidedots" src="assets/images/sidedots.png">
 
-<div class="container analysis_container">
-
+<div class="analysis_container">
     <div class="analysis_content center_vertical">
 
         <div class="analysis_content_subheading1">
@@ -19,19 +18,19 @@
             <img src="assets/images/analysis/subheading2.png">
             <div>
             <select class="comp_genome_select" ng-model="genome_comp1">
-                <option value="filled">1st</option>
+                <option value="" disabled selected>1st</option>
                 <option  class="ref_genome_option" ng-repeat="genome in genomes">{{genome.simple_name}}</option>
             </select>
             <select class="comp_genome_select"  ng-model="genome_comp2">
-                <option value="filled">2nd</option>
+                <option value="" disabled selected>2nd</option>
                 <option  class="ref_genome_option" ng-repeat="genome in genomes">{{genome.simple_name}}</option>
             </select>
             <select class="comp_genome_select" ng-model="genome_comp3">
-                <option value="filled">3rd</option>
+                <option value="" disabled selected>3rd</option>
                 <option  class="ref_genome_option" ng-repeat="genome in genomes">{{genome.simple_name}}</option>
             </select>
             <select class="comp_genome_select"  ng-model="genome_comp4">
-                <option value="filled">4th</option>
+                <option value="" disabled selected>4th</option>
                 <option  class="ref_genome_option" ng-repeat="genome in genomes">{{genome.simple_name}}</option>
             </select>
             </div>
@@ -39,5 +38,6 @@
             <button class="analysis_button" ng-click="submit()"></button>
         </div>
     </div>
-    <img id="legend_bar" src="assets/images/analysis/legendbar.png">
+
+    <!-- <img id="legend_bar" src="assets/images/analysis/legendbar.png"> -->
 </div>

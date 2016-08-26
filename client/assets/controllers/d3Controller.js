@@ -3,8 +3,6 @@
 	angular
 		.module('app')
 		.controller('d3Controller', d3Ctrl)
-		// .directive("phyTree", ['d3', phyTreeDirective])
-		// .directive("barGraph", ['d3', barChartDirective])
 		.directive("charts", ['d3', chartsDirective])
 
 	function d3Ctrl($location, $scope, analysisService){
@@ -47,9 +45,7 @@
 	    				.size([400, 400])
 
 					var nodes = tree.nodes($scope.tree)
-					// console.log(nodes)
 					var links = tree.links(nodes);
-					// console.log(links)
 
 					var node = canvas.selectAll(".node")
 						.data(nodes)
@@ -57,7 +53,6 @@
 						.append("g")
 							.attr("class", "node")
 							.attr("transform", function(d) { return "translate(" + (d.y+10) + "," + (d.x) + ")" })
-
 
 					node.append("circle")
 						.attr("r", 5)
@@ -82,13 +77,9 @@
 						.attr("d", diagonal)
 
 					function click(d){
-						// console.log($scope.bar2)
 						console.log("clicked")
 						bar.update($scope.bar2)
-
 					}
-
-					// var bars =
 					return tree
 	    		}
 
@@ -151,28 +142,14 @@
 					      .attr("y", function(d) { return y(d.freq); }) // orientation
 					      .attr("height", function(d) { return height - y(d.freq); }) // length of the bar
 
-
 					function type(d) {
 					  d.freq = +d.freq;
 					  return d;
 					}
 
-
 					bar.update = function(data2){
-						// console.log("hererere")
-						// console.log(data2)
-						// console.log(svg.selectAll(".bar"))
-
-
-						// console.log(d3.max(data2, function(d) { return d.freq; }))
 
 					    y.domain([0, d3.max(data2, function(d) { return d.freq; })]);
-
-	    				// d3.select(".barChart").remove()
-						// svg.selectAll(".bar").transition().duration(3000).style("fill", "green")
-
-						// var bars = svg.selectAll()
-						// height = 500
 
 						svg.selectAll("rect").data(data2)
 							.transition()
@@ -181,8 +158,6 @@
 					      	.attr("width", x.rangeBand())
 					      	.attr("y", function(d) { return y(d.freq); }) // orientation
 					      	.attr("height", function(d) { console.log(height - y(d.freq)); return height - y(d.freq); }) // length of the bar
-
-
 					}
 					return bar
 	    		}
