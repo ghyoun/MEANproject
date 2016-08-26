@@ -8,22 +8,26 @@ app.controller('resultsController', function(analysisFactory, $location, $routeP
 
         $scope.comp1 = {
             "codon": analysisService.getCompare1Codon(),
-            "amino": analysisService.getCompare1Amino()
+            "amino": analysisService.getCompare1Amino(),
+            "color": analysisService.getCompare1Color()
         };
 
         $scope.comp2 = {
             "codon": analysisService.getCompare2Codon(),
-            "amino": analysisService.getCompare2Amino()
+            "amino": analysisService.getCompare2Amino(),
+            "color": analysisService.getCompare1Color()
         };
 
         $scope.comp3 = {
             "codon": analysisService.getCompare3Codon(),
-            "amino": analysisService.getCompare3Amino()
+            "amino": analysisService.getCompare3Amino(),
+            "color": analysisService.getCompare1Color()
         };
 
         $scope.comp4 = {
             "codon": analysisService.getCompare4Codon(),
-            "amino": analysisService.getCompare4Amino()
+            "amino": analysisService.getCompare4Amino(),
+            "color": analysisService.getCompare1Color()
         };
 
     }
