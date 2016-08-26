@@ -10,6 +10,8 @@
   <link rel="stylesheet" type="text/css" href="assets/css/analysis.css">
   <link rel="stylesheet" type="text/css" href="assets/css/analysis_results.css">
   <link rel="stylesheet" type="text/css" href="assets/css/synthesis.css">
+  <link rel="stylesheet" type="text/css" href="assets/css/phylogenetic.css">
+  
 </head>
 <body ng-controller="MainController">
 
@@ -18,10 +20,10 @@
       <a class="logo" href="#/"><img src="assets/images/main/genesislogo.png" id="nav_logo"></a>
       <ul class="navigation_bar">
         <li class="listing_bar">
-          <a class="" href="#/analysis"><img src="/assets/images/main/navigationunderscore.png" id="nav_1" ng-if="currentPage === '/genesis' || currentPage === '/analysis' || currentPage === '/analysis/results'">Sequence Analysis</a>
+          <a class="" href="#/analysis"><img src="/assets/images/main/navigationunderscore.png" id="nav_1" ng-if="currentPage === '/genesis' || currentPage === '/analysis'">Genome Select</a>
         </li>
         <li class="listing_bar">
-          <a class="" href="#/analysis/results">Results</a>
+          <a class="" href="#/analysis/results"><img src="/assets/images/main/navigationunderscore.png" id="nav_15" ng-if="currentPage === '/analysis/results'">Sequence Analysis</a>
         </li>
         <li class="listing_bar">
           <a class="" href="#/synthesis"><img src="/assets/images/main/navigationunderscore.png" id="nav_2" ng-if="currentPage === '/synthesis'">Modern Evolution Synthesis</a>
