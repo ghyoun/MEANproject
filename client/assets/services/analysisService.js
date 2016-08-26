@@ -31,6 +31,73 @@ app.service('analysisService', function() {
       var compare4_color = [];
   }
 
+  var getBarGraphInfo = function(number) {
+      var compare;
+      if (number == 1) {
+          compare = compare1_amino;
+      } else if (number == 2) {
+          compare = compare2_amino;
+      } else if (number == 3) {
+          compare = compare3_amino;
+      } else if (number == 4) {
+          compare = compare4_amino;
+      } else {
+          compare = compare5_amino;
+      }
+      var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+      var amino = ['Ala','Arg','Asn','Asp','Cys','Glu','Gln','Gly','His','Ile','Leu','Lys','Met','Phe','Pro','Ser','Thr','Trp','Tyr','Val']
+      for (var i = 0; i < compare.length; i++) {
+          if (compare[i] == 'Ala') {
+              counts[0]++;
+          } else if (compare[i] == 'Arg') {
+              counts[1]++;
+          } else if (compare[i] == 'Asn') {
+              counts[2]++;
+          } else if (compare[i] == 'Asp') {
+              counts[3]++;
+          } else if (compare[i] == 'Cys') {
+              counts[4]++;
+          } else if (compare[i] == 'Glu') {
+              counts[5]++;
+          } else if (compare[i] == 'Gln') {
+              counts[6]++;
+          } else if (compare[i] == 'Gly') {
+              counts[7]++;
+          } else if (compare[i] == 'His') {
+              counts[8]++;
+          } else if (compare[i] == 'Ile') {
+              counts[9]++;
+          } else if (compare[i] == 'Leu') {
+              counts[10]++;
+          } else if (compare[i] == 'Lys') {
+              counts[11]++;
+          } else if (compare[i] == 'Met') {
+              counts[12]++;
+          } else if (compare[i] == 'Phe') {
+              counts[13]++;
+          } else if (compare[i] == 'Pro') {
+              counts[14]++;
+          } else if (compare[i] == 'Ser') {
+              counts[15]++;
+          } else if (compare[i] == 'Thr') {
+              counts[16]++;
+          } else if (compare[i] == 'Trp') {
+              counts[17]++;
+          } else if (compare[i] == 'Tyr') {
+              counts[18]++;
+          } else if (compare[i] == 'Val') {
+              counts[19]++;
+          }
+      }
+      var total = compare.length;
+      var frequencies = [];
+      for (var i = 0; i < 20; i++) {
+          frequencies.push({name:amino[i], freq:(counts[i]/total), count: counts[i]});
+      }
+      return frequencies;
+
+  }
+
   var addReferenceCodon= function(codon) {
       reference_codon.push(codon);
   };
@@ -202,6 +269,7 @@ app.service('analysisService', function() {
     addInsertion2: addInsertion2,
     addInsertion3: addInsertion3,
     addInsertion4: addInsertion4,
+    getBarGraphInfo: getBarGraphInfo,
   };
 
 });
