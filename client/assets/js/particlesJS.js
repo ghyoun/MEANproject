@@ -2,7 +2,7 @@
 particlesJS('particles-js', {
     'particles': {
         'number': {
-            'value': 100,
+            'value': 39,
             'density': {
                 'enable': true,
                 'value_area': 1000
@@ -10,14 +10,13 @@ particlesJS('particles-js', {
         },
         'color': {
             'value': [
-                '#aa73ff',
+                '#999999',
                 '#f8c210',
-                '#83d238',
                 '#33b1f8'
             ]
         },
         'shape': {
-            'type': 'circle',
+            'type': 'triangle',
             'stroke': {
                 'width': 0,
                 'color': '#fff'
@@ -89,4 +88,3 @@ particlesJS('particles-js', {
     },
     'retina_detect': true
 });
-
