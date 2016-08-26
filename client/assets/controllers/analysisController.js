@@ -322,6 +322,7 @@ app.controller('analysisController', function(analysisFactory, $location, $route
         }
         analysisFactory.getGenome(genome_ref).then(function(data) {
             _this.reference = data.data.genome;
+            analysisService.setReferenceName(_this.reference.simple_name)
             $scope.addCodonsReference(_this.reference.sequence);
         });
         if ($scope.genome_comp1 != 'filled') {
@@ -330,6 +331,7 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             }
             analysisFactory.getGenome(genome_comp1).then(function(data) {
                 _this.compare1 = data.data.genome;
+                analysisService.setCompare1Name(_this.compare1.simple_name)
                 $scope.addCodonsCompare1(_this.compare1.sequence, function() {
                     $scope.compare1();
                 });
@@ -342,6 +344,7 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             }
             analysisFactory.getGenome(genome_comp2).then(function(data) {
                 _this.compare2 = data.data.genome;
+                analysisService.setCompare2Name(_this.compare2.simple_name)
                 $scope.addCodonsCompare2(_this.compare2.sequence, function() {
                     $scope.compare2();
                 });
@@ -353,6 +356,7 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             }
             analysisFactory.getGenome(genome_comp3).then(function(data) {
                 _this.compare3 = data.data.genome;
+                analysisService.setCompare3Name(_this.compare3.simple_name)
                 $scope.addCodonsCompare3(_this.compare3.sequence, function() {
                     $scope.compare3();
                 });
@@ -364,6 +368,7 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             }
             analysisFactory.getGenome(genome_comp4).then(function(data) {
                 _this.compare4 = data.data.genome;
+                analysisService.setCompare4Name(_this.compare4.simple_name)
                 $scope.addCodonsCompare4(_this.compare4.sequence, function() {
                     $scope.compare4();
                 });

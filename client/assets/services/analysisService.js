@@ -1,18 +1,23 @@
 app.service('analysisService', function() {
   var reference_codon = [];
   var reference_amino = [];
+  var reference_name = '';
   var compare1_codon = [];
   var compare1_amino = [];
   var compare1_color = [];
+  var compare1_name = '';
   var compare2_codon = [];
   var compare2_amino = [];
   var compare2_color = [];
+  var compare2_name = '';
   var compare3_codon = [];
   var compare3_amino = [];
   var compare3_color = [];
+  var compare3_name = '';
   var compare4_codon = [];
   var compare4_amino = [];
   var compare4_color = [];
+  var compare4_name = '';
 
   var clear = function() {
       var reference_codon = [];
@@ -29,6 +34,11 @@ app.service('analysisService', function() {
       var compare4_codon = [];
       var compare4_amino = [];
       var compare4_color = [];
+  }
+
+  var allNames = function() {
+      var names = [reference_name, compare1_name, compare2_name, compare3_name, compare4_name];
+      return names;
   }
 
   var getRelation = function(number1, number2) {
@@ -259,6 +269,26 @@ app.service('analysisService', function() {
       }
   }
 
+  var setReferenceName = function(name) {
+      reference_name = name;
+  }
+
+  var setCompare1Name = function(name) {
+      compare1_name = name;
+  }
+
+  var setCompare2Name = function(name) {
+      compare2_name = name;
+  }
+
+  var setCompare3Name = function(name) {
+      compare3_name = name;
+  }
+
+  var setCompare4Name = function(name) {
+      compare4_name = name;
+  }
+
   return {
     clear: clear,
     addReferenceCodon: addReferenceCodon,
@@ -295,6 +325,12 @@ app.service('analysisService', function() {
     addInsertion4: addInsertion4,
     getBarGraphInfo: getBarGraphInfo,
     getRelation: getRelation,
+    setReferenceName: setReferenceName,
+    setCompare1Name: setCompare1Name,
+    setCompare2Name: setCompare2Name,
+    setCompare3Name: setCompare3Name,
+    setCompare4Name: setCompare4Name,
+    allNames: allNames,
   };
 
 });
