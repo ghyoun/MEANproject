@@ -1,12 +1,31 @@
 
 .analysis_container {
         background-image: url(/assets/images/analysis/greydecorationbarsaroundimage.png), url(/assets/images/analysis/bannerimage.png) ;
-            background-position: 100% 25%, 80% 50%;
+            background-position: 100% 25%, 65% 50%;
             background-repeat:  no-repeat;
             /*background-attachment: fixed;*/
             /*background-size:  cover;*/
             background-color: #f6f6f6;
-            height:100vh
+            height:100vh;
+            padding-left: 20%;
+}
+.navigation_bar{
+  display:inline-block;
+  margin-bottom: 0px !important;
+  vertical-align: top;
+  margin-top: 50px;
+}
+
+li {
+  padding-bottom: 0px;
+}
+ul .navigation_bar {
+  margin-top: 30%;
+  padding-top: 40px;
+}
+.listing_bar{
+  display: inline-block;
+  padding-left: 40px;
 }
 .sidedots {
   position: absolute;
@@ -19,14 +38,17 @@
 }
 
 .analysis_content {
-    width: 50%;
-    padding-bottom: 5%;
+  /*padding-left: 15%;*/
+    /*width: 50%;*/
+    /*padding-bottom: 10%;*/
     background-image: url(/assets/images/analysis/goldborderboxesdesign.png) ;
     background-repeat: no-repeat;
-    background-position: left top; 
 
+    width: 433px;
+    height: 336px;
+    /*outline: 1px solid red;*/
 
-            
+    padding-left: 20px;
 }
 
 
@@ -68,7 +90,7 @@
 
 .analysis_text {
     padding: 5% 0% 5% 10%;
-    width: 80%;
+    width: 450px;
     color: #999999;
 }
 
@@ -80,7 +102,7 @@
     width:90px;
     height:30px;
     opacity: 1;
-    margin-left: 20%;
+    margin-left: 45px;
 }
 .analysis_button:hover {
   opacity: 0.65;
@@ -102,15 +124,7 @@
       width: 15px;
 }*/
 
-.analysis_container {
-        background-image: url(/assets/images/analysis/greydecorationbarsaroundimage.png), url(/assets/images/analysis/bannerimage.png) ;
-            background-position: 100% 25%, 80% 50%;
-            background-repeat:  no-repeat;
-            /*background-attachment: fixed;*/
-            /*background-size:  cover;*/
-            background-color: #f6f6f6;
-            height:100vh
-}
+
 /*.analysis_results_container {
     background-color: #14233c;
     height:100%;
@@ -133,16 +147,7 @@
   padding-right: 7%;
 }
 
-.analysis_content {
-    width: 50%;
-    padding-bottom: 5%;
-    background-image: url(/assets/images/analysis/goldborderboxesdesign.png) ;
-    background-repeat: no-repeat;
-    background-position: left top; 
 
-
-            
-}
 
 .center_vertical {
   position: relative;
@@ -192,29 +197,3 @@
     -webkit-appearance: none;
      margin: 1em 1.5em 1em 0em;
 }
-
-
-.analysis_text {
-    padding: 5% 0% 5% 10%;
-    width: 80%;
-    color: #999999;
-}
-
-.analysis_button {
-
-    background:url(/assets/images/analysis/submit.png) no-repeat;
-    cursor:pointer;
-    border:none;
-    width:90px;
-    height:30px;
-    opacity: 1;
-    margin-left: 20%;
-}
-.analysis_button:hover {
-  opacity: 0.65;
-}
-.analysis_button:active {
-     opacity: 0.15;
-}
-
-
