@@ -1,10 +1,15 @@
 <div class="thiscontainer" ng-controller="d3Controller as d3C">
     <charts></charts>
-    <!-- <img id=gold src="assets/images/phylogenetic/goldbars.png"> -->
-    <img id=photo src="assets/images/phylogenetic/backgroundimage.png">
-    <span id="last">Phylogenetic Tree Comparison</span>
-    <div id="tree"></div>
-    <div class="heading_white">Amino Acid Mutation Frequency</div>
+    <!-- <div id="gold"><img src="assets/images/phylogenetic/goldbars.png"></div> -->
+    <!-- <img id=photo src="assets/images/phylogenetic/backgroundimage.png"> -->
+    <div id=photo>
+      <span id="last">Phylogenetic Tree Comparison</span>
+      <div id="tree"></div>
+      <label class="compMeth">COMPUTATION METHODOLOGY</label>
+      <p class="phyParagraph">The following UPGMA phylogeny was genereated by calculating a fixed distance value(# of changes / length of each pair). The frequencies were then mapped using a model-based distance approach with the implementation of a Jukes Contor correction.</p>
+
+    </div>
+    <!-- <div class="heading_white">Amino Acid Mutation Frequency</div> -->
     <div class = "bigbar">
       <span id="head1">Amino Acid Mutation Frequency<span>
       <span id="subhead2">

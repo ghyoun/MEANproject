@@ -8,8 +8,8 @@
 	function d3Ctrl($location, $scope, analysisService){
 
 		// $scope.tree = {name:"HIV-1 isolate Cameroon1",children: [{name: "A",children: [{ name: "aaaaaaa" },{ name: "bbbbbbbbb" },{ name: "cccc" },]},{name: "B",children: [{name: "aaaaaaa",children: [{ name: "11111" },{ name: "22" },]},{name: "bbbbbbbbbbbbbbb",children: [{ name: "1111" },{ name: "22" },{ name: "3333333333333" },{ name: "444444444" }]}]},]}
-		$scope.barfreq = analysisService.getBarGraphInfo(1);
-		$scope.bar2 = analysisService.getBarGraphInfo(2);
+		// $scope.barfreq = analysisService.getBarGraphInfo(1);
+		// $scope.bar2 = analysisService.getBarGraphInfo(2);
 
 		var matrix = [];
 
@@ -288,7 +288,8 @@
 					    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
 	    				.attr("class", "barChart")
 
-	    			var data = $scope.barfreq
+	    			var data = $scope.newTable.analysisService.getBarGraphInfo(0)
+						console.log(data)
 
 					  x.domain(data.map(function(d) { return d.name; }));
 					  y.domain([0, d3.max(data, function(d) { return d.freq; })]);
