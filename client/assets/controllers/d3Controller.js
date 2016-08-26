@@ -14,6 +14,194 @@
 		$scope.bar2 = analysisService.getBarGraphInfo(2);
 
 		var matrix = [];
+
+		for (var i = 0; i < 5; i++) {
+
+			var row = [];
+			for (var j = 0; j < 5; j++) {
+				if (j <= i) {
+					row.push(0);
+				} else {
+					row.push(analysisService.getRelation(i, j));
+				}
+			}
+			matrix.push(row);
+		}
+		console.log(matrix);
+
+		var namesList = analysisService.allNames();
+
+		function Table (matrixInput, names) {
+			this.columnNames = names;
+			this.matrix = matrixInput;
+			this.tree = {};
+			this.isFloater = false;
+			this.floaters = [];
+
+			this.addTo = function(first, second) {
+				this.columnNames[first] = this.columnNames[first] + "***" + this.remove(second);
+			}
+
+			this.remove = function(index){
+				var nameArray = this.columnNames
+				var index = 0
+				var remove = '';
+				for(var i=0; i< nameArray.length; i++){
+					if(i === index){
+						index = i
+						remove = nameArray[i]
+					}
+				}
+				while(i != nameArray.length){
+					nameArray[i] = nameArray[i+1]
+				}
+				nameArray.pop()
+				return remove
+			}
+
+			this.getSmallest = function() {
+
+				var smallest = 1.01;
+				var location = {row: null,
+							column: null}
+				for (var i = 0; i < this.matrix.length; i++) {
+					for (var j = 0; j < this.matrix.length; j++) {
+						if (j > i) {
+							if(this.matrix[i][j] < smallest){
+								smallest = this.matrix[i][j]
+								location.row = i
+								location.column = j
+							}
+						}
+					}
+				}
+				var output = {
+					smallest: smallest,
+					location: location
+				}
+				return output;
+			}
+
+			this.getAvg = function(firstRef, secondRef, compare) {
+				var firstValue;
+				var secondValue;
+				if (firstRef < compare) {
+					firstValue = this.matrix[firstRef][compare];
+				} else {
+					firstValue = this.matrix[compare][firstRef];
+				}
+
+				if (secondRef < compare) {
+
+					secondValue = this.matrix[secondRef][compare];
+				} else {
+					secondValue = this.matrix[compare][secondRef];
+
+				}
+				return (firstValue + secondValue)/2;
+			}
+
+			this.combineMatrix = function(row, column) {
+				var size = this.matrix.length;
+				var newMatrix = [];
+				for (var i = 0; i < size-1; i++) {
+					var tempRow = [];
+					for (var j = 0; j < size-1; j++) {
+						if (j <= i) {
+							tempRow.push(0);
+						} else if (i == row) {
+							if (j >= column) {
+								tempRow.push(this.getAvg(row, column, j+1));
+							} else {
+								tempRow.push(this.getAvg(row, column, j));
+							}
+						} else if (j == row) {
+							tempRow.push(this.getAvg(row, column, i));
+						} else if (j >= column){
+							tempRow.push(this.matrix[i][j+1]);
+						} else {
+							tempRow.push(this.matrix[i][j]);
+						}
+					}
+					newMatrix.push(tempRow);
+				}
+				console.log(newMatrix);
+				this.matrix = newMatrix;
+			}
+
+
+			this.buildTree = function() {
+				if (this.floaters.length >= 2) {
+					this.tree = {
+						name: 'Parent',
+						children: [this.floaters[0], this.floaters[1], {name: 'HIV-1(DR019)', children:[]}]
+					}
+				} else {
+					var chosenOnes = this.getSmallest();
+					newTable.combineMatrix(chosenOnes.location.row, chosenOnes.location.column);
+					var firstName = this.columnNames[chosenOnes.location.row];
+					var lastName = this.columnNames[chosenOnes.location.column];
+					if (!firstName.includes('***') && !lastName.includes('***')) {
+						var smallestIndex = this.getSmallest();
+						var firstChild = {
+							name: firstName,
+							children: [],
+							number: chosenOnes.location.row
+						}
+						var secondChild = {
+							name: lastName,
+							children: [],
+							number: chosenOnes.location.column
+						}
+
+						var firstParent = {
+							name: '',
+							children: [firstChild, secondChild]
+						}
+						this.tree = firstParent;
+						this.floaters.push(firstParent);
+					} else if (!firstName.includes('***')) {
+						var newChild = {
+							name: firstName,
+							children: [],
+							number: chosenOnes.location.row
+						}
+
+						var newParent = {
+							name: '',
+							children: [newChild, this.tree]
+						}
+
+						this.tree = newParent;
+					} else if (!lastName.includes('***')) {
+						var newChild = {
+							name: lastName,
+							children: [],
+							number: chosenOnes.location.column
+						}
+
+						var newParent = {
+							name: '',
+							children: [newChild, this.tree]
+						}
+
+						this.tree = newParent;
+					}
+				}
+			}
+
+			this.getTree = function() {
+				return this.tree;
+			}
+		}
+
+		var newTable = new Table(matrix, namesList);
+		newTable.buildTree();
+		console.log(newTable.getTree());
+		newTable.buildTree();
+		console.log(newTable.getTree());
+		newTable.buildTree();
+		console.log(newTable.getTree());
 	}
 
 	function chartsDirective(d3){
@@ -26,11 +214,11 @@
 
 	    			var canvas = d3.select("#tree").append("svg")
 	    				.attr("width", 500)
-	    				.attr("height", 400)
+	    				.attr("height", 500)
 	    				.attr("class", "phyTree")
 
 	    			var tree = d3.layout.tree()
-	    				.size([400, 400])
+	    				.size([350, 350])
 
 					var nodes = tree.nodes($scope.tree)
 					var links = tree.links(nodes);
@@ -112,6 +300,7 @@
 					      .call(xAxis)
 					      .attr("fill", "white")
 
+
 					  svg.append("g")
 					      .attr("class", "y axis")
 					      .call(yAxis)
@@ -124,15 +313,18 @@
 					      .text("Frequency")
 					      .attr("fill", "white")
 
+
 					  svg.selectAll(".bar")
 					      .data(data)
 					    .enter().append("rect")
 					      .attr("class", "bar")
 					      .attr("x", function(d) { return x(d.name); })
 					      .attr("width", x.rangeBand())
+
 					      .attr("y", function(d) { return y(d.freq); })
 					      .attr("height", function(d) { return height - y(d.freq); })
-					      .attr("fill", "white")
+						  .attr("fill", "white")
+
 
 					function type(d) {
 					  d.freq = +d.freq;
@@ -150,7 +342,14 @@
 					      	.attr("width", x.rangeBand())
 					      	.attr("y", function(d) { return y(d.freq); })
 					      	.attr("height", function(d) { console.log(height - y(d.freq)); return height - y(d.freq); })
-					      	.attr("fill", "gold")
+							.attr("fill", "#ddb06f")
+
+						svg.selectAll("g")
+							.transition()
+							.duration(1500)
+							.attr("fill", "#ddb06f")
+							.select("text")
+							.attr("fill", "#ddb06f")
 					}
 					return bar
 	    		}

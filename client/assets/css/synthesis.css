@@ -56,7 +56,7 @@
 .heading_white {
     font-family: 'Din Alternate Medium';
     font-size: 22;
-    color: #ffffff;
+    color: #ededed;
     padding-left: 6px;
 }
 .subheading_var {
@@ -67,7 +67,6 @@
     padding-left: 2px;
 }
 .synthesis_button {
-
     background:url(/assets/images/synthesis/calculatebutton.png) no-repeat;
     cursor:pointer;
     border:none;

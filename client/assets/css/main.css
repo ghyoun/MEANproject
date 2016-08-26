@@ -15,7 +15,7 @@
   margin-left: %;
 }
 body {
-    background: #f6f6f6;
+    background: #ededed;
     font-family: 'Din Alternate Light';
     color: #000000;
 }
@@ -62,20 +62,25 @@ a #margin-left {
     padding-top: 18px;
     /*padding-left: 10px;*/
     position: absolute;
-    width:110px;
+    width:100px;
+ }
+ #nav_15 {
+    padding-top: 18px;
+    position: absolute;
+    width:118px;
  }
   #nav_2 {
     padding-top: 18px;
-    padding-left: 15px;
+    padding-left: 1px;
+    height: 20px;
     position: absolute;
-    width:160px;
-
+    width:180px;
  }
   #nav_3 {
     padding-top: 18px;
-    padding-left: 5px;
+    padding-left: 1px;
     position: absolute;
-    width:80px;
+    width:90px;
  }
 /*End of Nav*/
 
