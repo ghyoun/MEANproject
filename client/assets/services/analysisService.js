@@ -76,7 +76,7 @@ app.service('analysisService', function() {
       } else if (number == 4) {
           compare = compare4_amino;
       } else {
-          compare = compare5_amino;
+          compare = reference_amino;
       }
       var counts = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
       var amino = ['Ala','Arg','Asn','Asp','Cys','Glu','Gln','Gly','His','Ile','Leu','Lys','Met','Phe','Pro','Ser','Thr','Trp','Tyr','Val']
