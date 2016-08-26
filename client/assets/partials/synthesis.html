@@ -1,10 +1,10 @@
 <img class="sidedots" src="assets/images/synthesis/doctscalculation.png">
-<div class="synthesis_container">test
+<div class="synthesis_container">
     <div class="synthesis_content">
         <h3>Modern Evolution Synthesis</h3>
         <div id="synthesis_equation">
-            <textarea cols="1" rows="1" class="synthesis_equation_input" id="synthesis_equation_input1">N</textarea>
-            <textarea cols="1" rows="1" class="synthesis_equation_input" id="synthesis_equation_input2">S</textarea>
+            <textarea cols="1" rows="1" class="synthesis_equation_input" id="synthesis_equation_input1" ng-model='S'>S</textarea>
+            <textarea cols="1" rows="1" class="synthesis_equation_input" id="synthesis_equation_input2" ng-model='N'>N</textarea>
         </div>
         <button class="synthesis_button" ng-click="calculate()"></button>
 
@@ -14,9 +14,9 @@
             <h5 class="subheading_var">S = Selective Advantage of Allele.</h5>
         </div>
         <div id="content_bottom" ng-if="buttonPressed">
-            <h3 class="heading_white">YOU PRESSED A BUTTON</h3>
-            <h5 class="subheading_var">Show results.</h5>
-            <h5 class="subheading_var">Show some more.</h5>
+            <h3 class="heading_white">Is There Selection?</h3>
+            <h5 class="subheading_var">P = {{P}}</h5>
+            <h5 class="subheading_var">{{A}}</h5>
         </div>
 
     </div>

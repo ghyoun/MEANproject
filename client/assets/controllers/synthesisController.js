@@ -4,16 +4,27 @@ app.controller('synthesisController', function($location, $routeParams, $scope, 
     var _this = this;
     _this.reference;
     _this.compare1;
+    $scope.N;
+    $scope.S;
+    $scope.P;
+    $scope.A;
 
     $scope.buttonPressed = false;
 
     $scope.calculate = function(){
         if ($scope.buttonPressed==false) {
             $scope.buttonPressed = true;
+            $scope.P = ((1 - Math.exp(-2 * $scope.S))/(1 - Math.exp(-4 * $scope.N * $scope.S)));
+            if ($scope.P <= 0.05) {
+                  $scope.A = "Yes.";
+            }
+            if ($scope.P >= 0.05) {
+                  $scope.A = "No.";
+            }
         } else {
             $scope.buttonPressed = false;
         }
-    };   
+    };
 
     // // $scope.id = $routeParams.id;
 

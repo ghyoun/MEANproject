@@ -7,16 +7,15 @@
 		// .directive("barGraph", ['d3', barChartDirective])
 		.directive("charts", ['d3', chartsDirective])
 
-	function d3Ctrl($location, $scope){
+	function d3Ctrl($location, $scope, analysisService){
 
 		$scope.tree = {name:"HIV-1 isolate Cameroon1(ViroSeq) HIV DR 46",children: [{name: "A",children: [{ name: "aaaaaaa" },{ name: "bbbbbbbbb" },{ name: "cccc" },]},{name: "B",children: [{name: "aaaaaaa",children: [{ name: "11111" },{ name: "22" },]},{name: "bbbbbbbbbbbbbbb",children: [{ name: "1111" },{ name: "22" },{ name: "3333333333333" },{ name: "444444444" }]}]},]}
 		$scope.bar = [{name: "Gary"},{name: "Gary"},{name: "Gary"},{name: "Gary"},{name: "Dan"},{name: "Dan"},{name: "Gabe"},{name: "Gabe"},{name: "Gabe"},{name: "Young"},]
-		
-		// $scope.barfreq = [{letter:"A", freq:0.25}]
-		// $scope.bar2 = [{letter:"Q", freq:0.05}]
-		$scope.barfreq = [{letter:"A", freq:0.05},{letter:"B", freq:0.3},{letter:"C", freq:0.15},{letter:"D", freq:0.4},{letter:"E", freq:0.1}]
-		$scope.bar2 = [{letter:"Q", freq:0.3},{letter:"R", freq:0.05},{letter:"S", freq:0.25},{letter:"T", freq:0.1},{letter:"U", freq:0.3}]
-	
+		console.log(analysisService.getBarGraphInfo(1));
+		console.log(analysisService.getBarGraphInfo(2));
+		$scope.barfreq = analysisService.getBarGraphInfo(1);
+		$scope.bar2 = analysisService.getBarGraphInfo(2);
+
 	}
 
 	function chartsDirective(d3){
@@ -46,7 +45,7 @@
 						.append("g")
 							.attr("class", "node")
 							.attr("transform", function(d) { return "translate(" + (d.y+10) + "," + (d.x) + ")" })
-							
+
 
 					node.append("circle")
 						.attr("r", 5)
@@ -112,7 +111,7 @@
 
 	    			var data = $scope.barfreq
 
-					  x.domain(data.map(function(d) { return d.letter; }));
+					  x.domain(data.map(function(d) { return d.name; }));
 					  y.domain([0, d3.max(data, function(d) { return d.freq; })]);
 
 					  svg.append("g")
@@ -134,29 +133,26 @@
 					      .data(data)
 					    .enter().append("rect")
 					      .attr("class", "bar")
-					      .attr("x", function(d) { return x(d.letter); })
+					      .attr("x", function(d) { return x(d.name); })
 					      .attr("width", x.rangeBand())
 					      .attr("y", function(d) { return y(d.freq); }) // orientation
 					      .attr("height", function(d) { return height - y(d.freq); }) // length of the bar
 
-				
+
 					function type(d) {
 					  d.freq = +d.freq;
 					  return d;
 					}
 
-			
-					bar.update = function(data2){
-						
-					    y.domain([0, d3.max(data2, function(d) { return d.freq; })]);
 
-	    				// d3.select(".barChart").remove()
-						// svg.selectAll(".bar").transition().duration(3000).style("fill", "green")
+					bar.update = function(data2){
+
+					    y.domain([0, d3.max(data2, function(d) { return d.freq; })]);
 
 						svg.selectAll("rect").data(data2)
 							.transition()
 							.duration(1500)
-					      	.attr("x", function(d) { return x(d.letter); })
+					      	.attr("x", function(d) { return x(d.name); })
 					      	.attr("width", x.rangeBand())
 					      	.attr("y", function(d) { return y(d.freq); }) // orientation
 					      	.attr("height", function(d) { console.log(height - y(d.freq)); return height - y(d.freq); }) // length of the bar
@@ -171,6 +167,3 @@
 		}
    	}
 })()
-
-
-
