@@ -156,7 +156,7 @@ app.controller('analysisController', function(analysisFactory, $location, $route
         }
     }
 
-    $scope.addCodonsCompare1 = function(sequence) {
+    $scope.addCodonsCompare1 = function(sequence, callback) {
         for (var i = 0; i < sequence.length; i += 3) {
             var firstPosition = changeCodon(sequence[i]);
             var secondPosition = changeCodon(sequence[i+1]);
@@ -166,9 +166,10 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             analysisService.addCompare1Codon(newCodon);
             enterAminoCompare1(firstPosition, secondPosition, thirdPosition);
         }
+        callback();
     }
 
-    $scope.addCodonsCompare2 = function(sequence) {
+    $scope.addCodonsCompare2 = function(sequence, callback) {
         for (var i = 0; i < sequence.length; i += 3) {
             var firstPosition = changeCodon(sequence[i]);
             var secondPosition = changeCodon(sequence[i+1]);
@@ -178,9 +179,10 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             analysisService.addCompare2Codon(newCodon);
             enterAminoCompare2(firstPosition, secondPosition, thirdPosition);
         }
+        callback();
     }
 
-    $scope.addCodonsCompare3 = function(sequence) {
+    $scope.addCodonsCompare3 = function(sequence, callback) {
         for (var i = 0; i < sequence.length; i += 3) {
             var firstPosition = changeCodon(sequence[i]);
             var secondPosition = changeCodon(sequence[i+1]);
@@ -190,9 +192,10 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             analysisService.addCompare3Codon(newCodon);
             enterAminoCompare3(firstPosition, secondPosition, thirdPosition);
         }
+        callback();
     }
 
-    $scope.addCodonsCompare4 = function(sequence) {
+    $scope.addCodonsCompare4 = function(sequence, callback) {
         for (var i = 0; i < sequence.length; i += 3) {
             var firstPosition = changeCodon(sequence[i]);
             var secondPosition = changeCodon(sequence[i+1]);
@@ -202,9 +205,116 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             analysisService.addCompare4Codon(newCodon);
             enterAminoCompare4(firstPosition, secondPosition, thirdPosition);
         }
+        callback();
     }
 
+    $scope.compare1 = function() {
+        var ref_codon = analysisService.getReferenceCodon();
+        var ref_amino = analysisService.getReferenceAmino();
+        var compare_codon = analysisService.getCompare1Codon();
+        var compare_amino = analysisService.getCompare1Amino();
+        if (ref_codon.length <= compare_codon.length) {
+            var short_length = ref_codon.length;
+        } else {
+            var short_length = compare_codon.length;
+        }
+        for (var i = 0; i < short_length; i++) {
+            if(compare_codon[i] != ref_codon[i]) {
+                if(compare_amino[i] == ref_amino[i]) {
+                    analysisService.addCompare1Color("gold");
+                } else {
+                    analysisService.addCompare1Color("blue");
+                }
+            } else {
+                analysisService.addCompare1Color("none");
+            }
+        }
 
+        if (ref_codon.length < compare_codon.length) {
+            analysisService.addInsertion1(compare_codon.length - ref_codon.length);
+        }
+    }
+
+    $scope.compare2 = function() {
+        var ref_codon = analysisService.getReferenceCodon();
+        var ref_amino = analysisService.getReferenceAmino();
+        var compare_codon = analysisService.getCompare2Codon();
+        var compare_amino = analysisService.getCompare2Amino();
+        if (ref_codon.length <= compare_codon.length) {
+            var short_length = ref_codon.length;
+        } else {
+            var short_length = compare_codon.length;
+        }
+        for (var i = 0; i < short_length; i++) {
+            if(compare_codon[i] != ref_codon[i]) {
+                if(compare_amino[i] == ref_amino[i]) {
+                    analysisService.addCompare2Color("gold");
+                } else {
+                    analysisService.addCompare2Color("blue");
+                }
+            } else {
+                analysisService.addCompare2Color("none");
+            }
+        }
+
+        if (ref_codon.length < compare_codon.length) {
+            analysisService.addInsertion2(compare_codon.length - ref_codon.length);
+        }
+    }
+
+    $scope.compare3 = function() {
+        var ref_codon = analysisService.getReferenceCodon();
+        var ref_amino = analysisService.getReferenceAmino();
+        var compare_codon = analysisService.getCompare3Codon();
+        var compare_amino = analysisService.getCompare3Amino();
+        if (ref_codon.length <= compare_codon.length) {
+            var short_length = ref_codon.length;
+        } else {
+            var short_length = compare_codon.length;
+        }
+        for (var i = 0; i < short_length; i++) {
+            if(compare_codon[i] != ref_codon[i]) {
+                if(compare_amino[i] == ref_amino[i]) {
+                    analysisService.addCompare3Color("gold");
+                } else {
+                    analysisService.addCompare3Color("blue");
+                }
+            } else {
+                analysisService.addCompare3Color("none");
+            }
+        }
+
+        if (ref_codon.length < compare_codon.length) {
+            analysisService.addInsertion3(compare_codon.length - ref_codon.length);
+        }
+    }
+
+    $scope.compare4 = function() {
+        var ref_codon = analysisService.getReferenceCodon();
+        var ref_amino = analysisService.getReferenceAmino();
+        var compare_codon = analysisService.getCompare4Codon();
+        var compare_amino = analysisService.getCompare4Amino();
+        if (ref_codon.length <= compare_codon.length) {
+            var short_length = ref_codon.length;
+        } else {
+            var short_length = compare_codon.length;
+        }
+        for (var i = 0; i < short_length; i++) {
+            if(compare_codon[i] != ref_codon[i]) {
+                if(compare_amino[i] == ref_amino[i]) {
+                    analysisService.addCompare4Color("gold");
+                } else {
+                    analysisService.addCompare4Color("blue");
+                }
+            } else {
+                analysisService.addCompare4Color("none");
+            }
+        }
+
+        if (ref_codon.length < compare_codon.length) {
+            analysisService.addInsertion4(compare_codon.length - ref_codon.length);
+        }
+    }
 
     $scope.submit = function(){
         var genome_ref = {
@@ -220,8 +330,11 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             }
             analysisFactory.getGenome(genome_comp1).then(function(data) {
                 _this.compare1 = data.data.genome;
-                $scope.addCodonsCompare1(_this.compare1.sequence);
+                $scope.addCodonsCompare1(_this.compare1.sequence, function() {
+                    $scope.compare1();
+                });
             });
+
         }
         if ($scope.genome_comp2 != 'filled') {
             var genome_comp2 = {
@@ -229,7 +342,9 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             }
             analysisFactory.getGenome(genome_comp2).then(function(data) {
                 _this.compare2 = data.data.genome;
-                $scope.addCodonsCompare2(_this.compare2.sequence);
+                $scope.addCodonsCompare2(_this.compare2.sequence, function() {
+                    $scope.compare2();
+                });
             });
         }
         if ($scope.genome_comp3 != 'filled') {
@@ -238,7 +353,9 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             }
             analysisFactory.getGenome(genome_comp3).then(function(data) {
                 _this.compare3 = data.data.genome;
-                $scope.addCodonsCompare3(_this.compare3.sequence);
+                $scope.addCodonsCompare3(_this.compare3.sequence, function() {
+                    $scope.compare3();
+                });
             });
         }
         if ($scope.genome_comp4 != 'filled') {
@@ -247,25 +364,15 @@ app.controller('analysisController', function(analysisFactory, $location, $route
             }
             analysisFactory.getGenome(genome_comp4).then(function(data) {
                 _this.compare4 = data.data.genome;
-                $scope.addCodonsCompare4(_this.compare4.sequence);
+                $scope.addCodonsCompare4(_this.compare4.sequence, function() {
+                    $scope.compare4();
+                });
             });
         }
         $location.path('/analysis/results');
 
     };
 
-    // $scope.compare = function(sequence1, sequence2) {
-    //     if (sequence1 <= sequence2) {
-    //         var short_length = sequence1.length;
-    //     } else {
-    //         var short_length = sequence2.length;
-    //     }
-    //
-    //     for (var i = 0; i < short_length; i += 3) {
-    //
-    //     }
-    //
-    // }
 
 
 });
